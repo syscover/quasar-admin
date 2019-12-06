@@ -22,7 +22,7 @@ class LangService extends CoreService
         // set uuid
         $data['uuid'] = Str::uuid();
 
-        return Lang::create($data);
+        return Lang::create($data)->fresh();
     }
 
     public function update(array $data, int $id)

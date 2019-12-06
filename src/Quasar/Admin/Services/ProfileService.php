@@ -16,7 +16,7 @@ class ProfileService extends CoreService
         // set uuid
         $data['uuid'] = Str::uuid();
 
-        return Profile::create($data);
+        return Profile::create($data)->fresh();
     }
 
     public function update(array $data, int $id)

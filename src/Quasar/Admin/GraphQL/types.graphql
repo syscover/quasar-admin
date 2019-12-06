@@ -27,6 +27,8 @@ type AdminPackage
     root: String!
     sort: Int!
     active: Boolean!
+    created_at: String!
+    updated_at: String!
 }
 
 type AdminProfile

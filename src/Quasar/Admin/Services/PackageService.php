@@ -1,25 +1,25 @@
-<?php namespace Syscover\Admin\Services;
+<?php namespace Quasar\Admin\Services;
 
 use Illuminate\Support\Str;
 use Quasar\Core\Services\CoreService;
 use Quasar\Core\Exceptions\ModelNotChangeException;
 use Quasar\Admin\Models\Package;
 
-class PackageService extends Service
+class PackageService extends CoreService
 {
-    public function store(array $data)
+    public function create(array $data)
     {
         $this->validate($data, [
             'name'      => 'required|between:2,255',
             'root'      => 'required|between:2,255',
-            'active'    => 'required',
-            'sort'      => 'required|integer|min:0'
+            'sort'      => 'required|integer|min:0',
+            'active'    => 'boolean',
         ]);
 
         // set uuid
         $data['uuid'] = Str::uuid();
 
-        Package::create($data);
+        return Package::create($data)->fresh();
     }
 
     public function update(array $data, int $id)
@@ -29,7 +29,8 @@ class PackageService extends Service
             'uuid'      => 'size:36',
             'name'      => 'between:2,255',
             'root'      => 'between:2,255',
-            'sort'      => 'integer|min:0'
+            'sort'      => 'integer|min:0',
+            'active'    => 'required|boolean',
         ]);
 
         $object = Package::findOrFail($id);

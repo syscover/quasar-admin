@@ -19,7 +19,7 @@ input AdminPackageInput
     name: String!
     root: String!
     sort: Int!
-    active: Boolean!
+    active: Boolean
 }
 
 input AdminProfileInput 

@@ -16,7 +16,7 @@ class RoleService extends CoreService
         // set uuid
         $data['uuid'] = Str::uuid();
 
-        return Role::create($data);
+        return Role::create($data)->fresh();
     }
 
     public function update(array $data, int $id)

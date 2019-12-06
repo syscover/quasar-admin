@@ -1,0 +1,19 @@
+# Lang
+adminCreateLang(payload:AdminLangInput!): AdminLang @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\LangResolver@create")
+adminUpdateLang(payload:AdminLangInput!): AdminLang @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\LangResolver@update")
+adminDeleteLang(uuid:ID!): AdminLang @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\LangResolver@delete")
+
+# Package
+adminCreatePackage(payload:AdminPackageInput!): AdminPackage @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\PackageResolver@create")
+adminUpdatePackage(payload:AdminPackageInput!): AdminPackage @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\PackageResolver@update")
+adminDeletePackage(id:Int!): AdminPackage @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\PackageResolver@delete")
+
+# Profile
+adminCreateProfile(payload:AdminProfileInput!): AdminProfile @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\ProfileResolver@create")
+adminUpdateProfile(payload:AdminProfileInput!): AdminProfile @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\ProfileResolver@update")
+adminDeleteProfile(id:Int!): AdminProfile @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\ProfileResolver@delete")
+
+# Role
+adminCreateRole(payload:AdminRoleInput!): AdminRole @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\RoleResolver@create")
+adminUpdateRole(payload:AdminRoleInput!): AdminRole @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\RoleResolver@update")
+adminDeleteRole(id:Int!): AdminRole @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\RoleResolver@delete")

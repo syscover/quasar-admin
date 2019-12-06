@@ -1,0 +1,34 @@
+{
+    "name": "quasar/admin",
+    "description": "Quasar Admin package",
+    "keywords": [
+        "syscover",
+        "pulsar",
+        "quasar",
+        "laravel",
+        "syscover",
+        "intranet",
+        "admin",
+        "nimbl"
+    ],
+    "authors": [
+        {
+            "name": "Jose Carlos Rodríguez Palacín",
+            "email": "carlos.rodriguez@techedgegroup.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Quasar\\Admin\\": "src/Quasar/Admin"
+        },
+        "classmap": [
+            "src/Quasar/Admin"
+        ],
+        "files": [
+            "src/helpers.php"
+        ]
+    }
+}

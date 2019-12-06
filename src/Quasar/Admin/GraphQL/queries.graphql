@@ -1,0 +1,19 @@
+# Lang
+adminLang(query:[QueryStatementInput]): AdminLang @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\LangResolver@find")
+adminLangs(query:[QueryStatementInput]): [AdminLang!]! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\LangResolver@get")
+adminLangsPagination(query:[QueryStatementInput]): Pagination! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\LangResolver@paginate")
+
+# Package
+adminPackage(query:[QueryStatementInput]): AdminPackage @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\PackageResolver@find")
+adminPackages(query:[QueryStatementInput]): [AdminPackage!]! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\PackageResolver@get")
+adminPackagesPagination(query:[QueryStatementInput]): Pagination! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\PackageResolver@paginate")
+
+# Profile
+adminProfile(query:[QueryStatementInput]): AdminProfile @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\ProfileResolver@find")
+adminProfiles(query:[QueryStatementInput]): [AdminProfile!]! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\ProfileResolver@get")
+adminProfilesPagination(query:[QueryStatementInput]): Pagination! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\ProfileResolver@paginate")
+
+# Role
+adminRole(query:[QueryStatementInput]): AdminRole @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\RoleResolver@find")
+adminRoles(query:[QueryStatementInput]): [AdminRole!]! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\RoleResolver@get")
+adminRolesPagination(query:[QueryStatementInput]): Pagination! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\RoleResolver@paginate")

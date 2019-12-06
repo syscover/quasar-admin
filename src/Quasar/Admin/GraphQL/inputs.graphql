@@ -1,0 +1,37 @@
+
+input AdminLangInput 
+{
+    id: Int
+    uuid: ID
+    name: String!
+    image: String
+    iso_639_2: String!
+    iso_639_3: String!
+    ietf: String!
+    sort: Int
+    active: Boolean
+}
+
+input AdminPackageInput 
+{
+    id: Int
+    uuid: ID
+    name: String!
+    root: String!
+    sort: Int!
+    active: Boolean!
+}
+
+input AdminProfileInput 
+{
+    id: Int
+    uuid: ID
+    name: String!
+}
+
+input AdminRoleInput 
+{
+    id: Int
+    uuid: ID
+    name: String!
+}

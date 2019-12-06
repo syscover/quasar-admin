@@ -1,0 +1,48 @@
+type AdminCredentials
+{
+    accessToken: String!
+    refreshToken: String!
+}
+
+type AdminLang 
+{
+    id: Int!
+    uuid: ID!
+    name: String!
+    image: String
+    iso_639_2: String!
+    iso_639_3: String!
+    ietf: String!
+    sort: Int
+    active: Boolean!
+    created_at: DateTime
+    updated_at: DateTime
+}
+
+type AdminPackage 
+{
+    id: Int!
+    uuid: ID!
+    name: String!
+    root: String!
+    sort: Int!
+    active: Boolean!
+}
+
+type AdminProfile
+{
+    id: Int!
+    uuid: ID!
+    name: String!
+    created_at: String!
+    updated_at: String!
+}
+
+type AdminRole
+{
+    id: Int!
+    uuid: ID!
+    name: String!
+    created_at: String!
+    updated_at: String!
+}

@@ -26,7 +26,7 @@ class AdminCreateTableUser extends Migration
                 $table->string('username');
                 $table->string('password');
                 $table->string('remember_token')->nullable();
-                $table->boolean('active')->default(false);
+                $table->boolean('is_active')->default(false);
 
                 $table->timestamps();
                 $table->softDeletes();

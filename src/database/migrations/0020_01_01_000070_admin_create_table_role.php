@@ -19,7 +19,8 @@ class AdminCreateTableRole extends Migration
 				
                 $table->increments('id');
                 $table->uuid('uuid');
-				$table->string('name');
+                $table->string('name');
+                $table->boolean('is_master')->default(false);
 
                 $table->timestamps();
                 $table->softDeletes();

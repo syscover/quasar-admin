@@ -10,8 +10,8 @@ use Quasar\Core\Models\CoreModel;
 class Package extends CoreModel
 {
 	protected $table        = 'admin_package';
-    protected $fillable     = ['id', 'uuid', 'name', 'root', 'sort', 'active'];
+    protected $fillable     = ['id', 'uuid', 'name', 'root', 'sort', 'is_active'];
     protected $casts        = [
-        'active' => 'boolean'
+        'is_active' => 'boolean'
     ];
 }

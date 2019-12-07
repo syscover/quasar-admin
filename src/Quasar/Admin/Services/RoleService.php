@@ -10,7 +10,8 @@ class RoleService extends CoreService
     public function create(array $data)
     {
         $this->validate($data, [
-            'name' => 'required|between:2,255'
+            'name'      => 'required|between:2,255',
+            'is_master' => 'boolean',
         ]);
 
         // set uuid
@@ -22,9 +23,10 @@ class RoleService extends CoreService
     public function update(array $data, int $id)
     {
         $this->validate($data, [
-            'id'    => 'required|integer',
-            'uuid'  => 'required|size:36',
-            'name'  => 'between:2,255'
+            'id'        => 'required|integer',
+            'uuid'      => 'required|size:36',
+            'name'      => 'between:2,255',
+            'is_master' => 'boolean',
         ]);
 
         $object = Role::findOrFail($id);

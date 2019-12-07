@@ -25,7 +25,7 @@ class AdminCreateTableLang extends Migration
                 $table->string('iso_639_3', 3);
                 $table->string('ietf', 5);
 				$table->smallInteger('sort')->unsigned()->nullable();
-				$table->boolean('active')->default(false);
+				$table->boolean('is_active')->default(false);
 
                 $table->timestamps();
                 $table->softDeletes();

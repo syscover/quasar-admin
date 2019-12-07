@@ -15,7 +15,7 @@ class UserService extends CoreService
             'surname'   => 'between:2,255',
             'email'     => 'required|email:rfc,dns|between:2,255',
             'lang_uuid' => 'required|uuid|size:36|exists:admin_lang,uuid',
-            'active'    => 'boolean',
+            'is_active' => 'boolean',
             'username'  => 'required|between:2,255',
             'password'  => 'required|between:2,255'
         ]);
@@ -36,7 +36,7 @@ class UserService extends CoreService
             'surname'   => 'between:2,255',
             'email'     => 'email:rfc,dns|between:2,255',
             'lang_uuid' => 'uuid|size:36|exist:admin_lang,uuid',
-            'active'    => 'boolean',
+            'is_active' => 'boolean',
             'username'  => 'between:2,255',
             'password'  => 'between:2,255'
         ]);

@@ -14,7 +14,7 @@ type AdminLang
     iso_639_3: String!
     ietf: String!
     sort: Int
-    active: Boolean!
+    is_active: Boolean!
     created_at: DateTime
     updated_at: DateTime
 }
@@ -26,7 +26,7 @@ type AdminPackage
     name: String!
     root: String!
     sort: Int!
-    active: Boolean!
+    is_active: Boolean!
     created_at: DateTime
     updated_at: DateTime
 }
@@ -56,6 +56,7 @@ type AdminRole
     id: Int!
     uuid: ID!
     name: String!
+    is_master: Boolean!
     created_at: DateTime
     updated_at: DateTime
 }
@@ -70,7 +71,7 @@ type AdminUser
     lang_uuid: ID!
     lang: AdminLang!
     username: String!
-    active: Boolean!
+    is_active: Boolean!
     created_at: DateTime
     updated_at: DateTime
 }

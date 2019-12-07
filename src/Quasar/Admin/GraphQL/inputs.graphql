@@ -9,7 +9,7 @@ input AdminLangInput
     iso_639_3: String!
     ietf: String!
     sort: Int
-    active: Boolean
+    is_active: Boolean
 }
 
 input AdminPackageInput 
@@ -19,7 +19,7 @@ input AdminPackageInput
     name: String!
     root: String!
     sort: Int!
-    active: Boolean
+    is_active: Boolean
 }
 
 input AdminPermissionInput 
@@ -42,6 +42,7 @@ input AdminRoleInput
     id: Int
     uuid: ID
     name: String!
+    is_master: Boolean!
 }
 
 input AdminUserInput 
@@ -54,6 +55,6 @@ input AdminUserInput
     lang_uuid: ID!
     username: String!
     password: String
-    active: Boolean!
+    is_active: Boolean!
 }
 

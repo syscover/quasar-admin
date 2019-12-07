@@ -16,7 +16,7 @@ class LangService extends CoreService
             'iso_639_3' => 'size:3',
             'ietf'      => 'size:5',
             'sort'      => 'min:0|integer',
-            'active'    => 'boolean'
+            'is_active' => 'boolean'
         ]);
         
         // set uuid
@@ -36,7 +36,7 @@ class LangService extends CoreService
             'iso_639_3' => 'size:3',
             'ietf'      => 'size:5',
             'sort'      => 'min:0|integer',
-            'active'    => 'boolean'
+            'is_active' => 'boolean'
         ]);
 
         $object = Lang::findOrFail($id);

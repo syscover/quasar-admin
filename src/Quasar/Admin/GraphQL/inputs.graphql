@@ -22,6 +22,14 @@ input AdminPackageInput
     active: Boolean
 }
 
+input AdminPermissionInput 
+{
+    id: Int
+    uuid: ID
+    name: String!
+    package_uuid: ID!
+}
+
 input AdminProfileInput 
 {
     id: Int

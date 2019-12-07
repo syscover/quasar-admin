@@ -8,6 +8,11 @@ adminCreatePackage(payload:AdminPackageInput!): AdminPackage @field(resolver: "Q
 adminUpdatePackage(payload:AdminPackageInput!): AdminPackage @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\PackageResolver@update")
 adminDeletePackage(id:Int!): AdminPackage @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\PackageResolver@delete")
 
+# Permission
+adminCreatePermission(payload:AdminPermissionInput!): AdminPermission @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\PermissionResolver@create")
+adminUpdatePermission(payload:AdminPermissionInput!): AdminPermission @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\PermissionResolver@update")
+adminDeletePermission(id:Int!): AdminPermission @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\PermissionResolver@delete")
+
 # Profile
 adminCreateProfile(payload:AdminProfileInput!): AdminProfile @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\ProfileResolver@create")
 adminUpdateProfile(payload:AdminProfileInput!): AdminProfile @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\ProfileResolver@update")

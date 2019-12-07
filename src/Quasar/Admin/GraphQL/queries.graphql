@@ -8,6 +8,11 @@ adminPackage(query:[QueryStatementInput]): AdminPackage @field(resolver: "Quasar
 adminPackages(query:[QueryStatementInput]): [AdminPackage!]! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\PackageResolver@get")
 adminPackagesPagination(query:[QueryStatementInput]): Pagination! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\PackageResolver@paginate")
 
+# Permission
+adminPermission(query:[QueryStatementInput]): AdminPermission @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\PermissionResolver@find")
+adminPermissions(query:[QueryStatementInput]): [AdminPermission!]! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\PermissionResolver@get")
+adminPermissionsPagination(query:[QueryStatementInput]): Pagination! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\PermissionResolver@paginate")
+
 # Profile
 adminProfile(query:[QueryStatementInput]): AdminProfile @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\ProfileResolver@find")
 adminProfiles(query:[QueryStatementInput]): [AdminProfile!]! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\ProfileResolver@get")

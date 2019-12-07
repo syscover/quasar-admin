@@ -22,8 +22,8 @@ class RoleService extends CoreService
     public function update(array $data, int $id)
     {
         $this->validate($data, [
-            'id'    => 'integer',
-            'uuid'  => 'size:36',
+            'id'    => 'required|integer',
+            'uuid'  => 'required|size:36',
             'name'  => 'between:2,255'
         ]);
 

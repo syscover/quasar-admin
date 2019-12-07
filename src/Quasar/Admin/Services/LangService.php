@@ -28,9 +28,9 @@ class LangService extends CoreService
     public function update(array $data, int $id)
     {
         $this->validate($data, [
-            'id'        => 'integer',
-            'uuid'      => 'size:36',
-            'name'      => 'required|between:2,255',
+            'id'        => 'required|integer',
+            'uuid'      => 'required|size:36',
+            'name'      => 'between:2,255',
             'image'     => 'between:2,255',
             'iso_639_2' => 'size:2',
             'iso_639_3' => 'size:3',

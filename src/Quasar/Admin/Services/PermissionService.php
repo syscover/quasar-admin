@@ -3,37 +3,33 @@
 use Illuminate\Support\Str;
 use Quasar\Core\Services\CoreService;
 use Quasar\Core\Exceptions\ModelNotChangeException;
-use Quasar\Admin\Models\Package;
+use Quasar\Admin\Models\Permission;
 
-class PackageService extends CoreService
+class PermissionService extends CoreService
 {
     public function create(array $data)
     {
         $this->validate($data, [
-            'name'      => 'required|between:2,255',
-            'root'      => 'required|between:2,255',
-            'sort'      => 'required|integer|min:0',
-            'active'    => 'boolean',
+            'name'          => 'required|between:2,255',
+            'package_uuid'  => 'required|uuid|size:36|exists:admin_package,uuid',
         ]);
 
         // set uuid
         $data['uuid'] = Str::uuid();
 
-        return Package::create($data)->fresh();
+        return Permission::create($data)->fresh();
     }
 
     public function update(array $data, int $id)
     {
         $this->validate($data, [
-            'id'        => 'required|integer',
-            'uuid'      => 'required|size:36',
-            'name'      => 'between:2,255',
-            'root'      => 'between:2,255',
-            'sort'      => 'integer|min:0',
-            'active'    => 'boolean',
+            'id'            => 'required|integer',
+            'uuid'          => 'required|size:36',
+            'name'          => 'between:2,255',
+            'package_uuid'  => 'uuid|size:36|exists:admin_package,uuid',
         ]);
 
-        $object = Package::findOrFail($id);
+        $object = Permission::findOrFail($id);
 
         $object->fill($data);
 

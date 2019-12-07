@@ -30,12 +30,14 @@ class UserService extends CoreService
     public function update(array $data, int $id)
     {
         $this->validate($data, [
-            'name'      => 'required|between:2,255',
+            'id'        => 'required|integer',
+            'uuid'      => 'required|size:36',
+            'name'      => 'between:2,255',
             'surname'   => 'between:2,255',
-            'email'     => 'required|email:rfc,dns|between:2,255',
-            'lang_uuid' => 'required|uuid|size:36|exist:admin_lang,uuid',
+            'email'     => 'email:rfc,dns|between:2,255',
+            'lang_uuid' => 'uuid|size:36|exist:admin_lang,uuid',
             'active'    => 'boolean',
-            'username'  => 'required|between:2,255',
+            'username'  => 'between:2,255',
             'password'  => 'between:2,255'
         ]);
 

@@ -14,12 +14,10 @@ class AdminSeeder extends Seeder
         $this->call(AdminPermissionSeeder::class);
         $this->call(AdminProfileSeeder::class);
         $this->call(AdminRoleSeeder::class);
-        
-        
-        
         $this->call(AdminUserSeeder::class);
+        $this->call(AdminPermissionsRolesSeeder::class);
+        $this->call(AdminRolesUsersSeeder::class);
         
-
         Model::reguard();
     }
 }

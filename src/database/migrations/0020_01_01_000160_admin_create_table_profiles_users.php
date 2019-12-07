@@ -17,10 +17,20 @@ class AdminCreateTableProfilesUsers extends Migration
             Schema::create('admin_profiles_users', function (Blueprint $table) {
                 $table->engine = 'InnoDB';
 
-                $table->integer('profile_uuid')->unsigned();
-                $table->integer('user_uuid')->unsigned();
+                $table->uuid('profile_uuid');
+                $table->uuid('user_uuid');
 
                 $table->primary(['profile_uuid', 'user_uuid']);
+                $table->foreign('profile_uuid', 'admin_profiles_users_profile_uuid_fk')
+                    ->references('uuid')
+                    ->on('admin_profile')
+                    ->onDelete('cascade')
+                    ->onUpdate('cascade');
+                $table->foreign('user_uuid', 'admin_profiles_users_user_uuid_fk')
+                    ->references('uuid')
+                    ->on('admin_user')
+                    ->onDelete('cascade')
+                    ->onUpdate('cascade');
             });
         }
 	}

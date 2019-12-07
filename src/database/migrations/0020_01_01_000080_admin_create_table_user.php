@@ -31,6 +31,7 @@ class AdminCreateTableUser extends Migration
                 $table->timestamps();
                 $table->softDeletes();
 
+                $table->index('uuid', 'admin_user_uuid_idx');
                 $table->unique('username', 'admin_user_user_uq');
                 $table->foreign('lang_uuid', 'admin_user_lang_uuid_fk')
                     ->references('uuid')

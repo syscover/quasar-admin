@@ -17,10 +17,20 @@ class AdminCreateTablePermissionsRoles extends Migration
             Schema::create('admin_permissions_roles', function (Blueprint $table) {
                 $table->engine = 'InnoDB';
 
-                $table->integer('permission_uuid')->unsigned();
-                $table->integer('role_uuid')->unsigned();
+                $table->uuid('permission_uuid');
+                $table->uuid('role_uuid');
 
                 $table->primary(['permission_uuid', 'role_uuid']);
+                $table->foreign('permission_uuid', 'admin_permissions_roles_permission_uuid_fk')
+                    ->references('uuid')
+                    ->on('admin_permission')
+                    ->onDelete('cascade')
+                    ->onUpdate('cascade');
+                $table->foreign('role_uuid', 'admin_permissions_roles_role_uuid_fk')
+                    ->references('uuid')
+                    ->on('admin_role')
+                    ->onDelete('cascade')
+                    ->onUpdate('cascade');
             });
         }
 	}

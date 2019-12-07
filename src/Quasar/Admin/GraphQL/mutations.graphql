@@ -17,3 +17,8 @@ adminDeleteProfile(id:Int!): AdminProfile @field(resolver: "Quasar\\Admin\\Graph
 adminCreateRole(payload:AdminRoleInput!): AdminRole @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\RoleResolver@create")
 adminUpdateRole(payload:AdminRoleInput!): AdminRole @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\RoleResolver@update")
 adminDeleteRole(id:Int!): AdminRole @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\RoleResolver@delete")
+
+# User
+adminCreateUser(payload:AdminUserInput!): AdminUser @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\UserResolver@create")
+adminUpdateUser(payload:AdminUserInput!): AdminUser @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\UserResolver@update")
+adminDeleteUser(id:Int!): AdminUser @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\UserResolver@delete")

@@ -27,8 +27,8 @@ type AdminPackage
     root: String!
     sort: Int!
     active: Boolean!
-    created_at: String!
-    updated_at: String!
+    created_at: DateTime!
+    updated_at: DateTime!
 }
 
 type AdminProfile
@@ -36,8 +36,8 @@ type AdminProfile
     id: Int!
     uuid: ID!
     name: String!
-    created_at: String!
-    updated_at: String!
+    created_at: DateTime!
+    updated_at: DateTime!
 }
 
 type AdminRole
@@ -45,6 +45,21 @@ type AdminRole
     id: Int!
     uuid: ID!
     name: String!
-    created_at: String!
-    updated_at: String!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type AdminUser
+{
+    id: Int!
+    uuid: ID!
+    name: String!
+    surname: String
+    email: String!
+    lang_uuid: ID!
+    lang: AdminLang!
+    username: String!
+    active: Boolean!
+    created_at: DateTime!
+    updated_at: DateTime!
 }

@@ -17,3 +17,8 @@ adminProfilesPagination(query:[QueryStatementInput]): Pagination! @field(resolve
 adminRole(query:[QueryStatementInput]): AdminRole @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\RoleResolver@find")
 adminRoles(query:[QueryStatementInput]): [AdminRole!]! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\RoleResolver@get")
 adminRolesPagination(query:[QueryStatementInput]): Pagination! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\RoleResolver@paginate")
+
+# User
+adminUser(query:[QueryStatementInput]): AdminUser @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\UserResolver@find")
+adminUsers(query:[QueryStatementInput]): [AdminUser!]! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\UserResolver@get")
+adminUsersPagination(query:[QueryStatementInput]): Pagination! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\UserResolver@paginate")

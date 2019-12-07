@@ -23,10 +23,10 @@ class AdminCreateTableUser extends Migration
                 $table->string('surname')->nullable();
                 $table->string('email');
                 $table->uuid('lang_uuid');
-                $table->boolean('active')->default(false);
                 $table->string('username');
                 $table->string('password');
                 $table->string('remember_token')->nullable();
+                $table->boolean('active')->default(false);
 
                 $table->timestamps();
                 $table->softDeletes();

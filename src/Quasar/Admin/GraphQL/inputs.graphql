@@ -35,3 +35,17 @@ input AdminRoleInput
     uuid: ID
     name: String!
 }
+
+input AdminUserInput 
+{
+    id: Int
+    uuid: ID
+    name: String!
+    surname: String
+    email: String!
+    lang_uuid: ID!
+    username: String!
+    password: String
+    active: Boolean!
+}
+

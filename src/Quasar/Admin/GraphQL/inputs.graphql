@@ -1,3 +1,9 @@
+input AdminCredentialsInput
+{
+    username: String!
+    password: String!
+    grantType: String!
+}
 
 input AdminLangInput 
 {

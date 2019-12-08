@@ -1,14 +1,51 @@
 <?php namespace Quasar\Admin\Services;
 
-use Illuminate\Support\Str;
-use Quasar\Core\Services\CoreService;
-use Quasar\Core\Exceptions\ModelNotChangeException;
-use Quasar\Admin\Models\Lang;
+use Illuminate\Support\Facades\Hash;
+use Firebase\JWT\JWT;
+use Carbon\Carbon;
+use Quasar\Admin\Models\User;
 
-class AuthService extends CoreService
+class AuthService
 {
-    public function validateUser()
+    public static function validateUser(string $username, string $password)
     {
+        $user = User::where('username', $username)->first();
 
+        if ($user && Hash::check($password, $user->password))
+        {
+            return $user;
+        }
+
+        return null;
+    }
+
+    public static function generateTokens(User $user)
+    {
+        // get current time
+        $date = Carbon::now();
+        $key = '123456';
+
+        $payload = [ 
+            'username'  => $user->username,
+            'name'      => $user->name,
+            'email'     => $user->email,
+            'lang'      => $user->lang,
+            'iat'       => $date->format('X'),
+            'nbf'       => $date->addSeconds(30)->format('X')
+        ];
+
+        $payload2 = [ 
+            'username'  => $user->username,
+            'name'      => $user->name,
+            'email'     => $user->email,
+            'lang'      => $user->lang,
+            'iat'       => $date->format('X'),
+            'nbf'       => $date->addSeconds(60)->format('X')
+        ];
+
+        return [
+            'accessToken'   => JWT::encode($payload, $key),
+            'refreshToken'  => JWT::encode($payload2, $key)
+        ];
     }
 }

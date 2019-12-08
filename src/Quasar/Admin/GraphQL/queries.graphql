@@ -1,3 +1,6 @@
+# Credentials
+adminCredentials(credentials: AdminCredentialsInput!): AdminCredentials! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AuthResolver@credentials")
+
 # Lang
 adminLang(query:[QueryStatementInput]): AdminLang @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\LangResolver@find")
 adminLangs(query:[QueryStatementInput]): [AdminLang!]! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\LangResolver@get")

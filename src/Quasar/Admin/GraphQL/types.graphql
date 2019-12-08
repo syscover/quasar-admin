@@ -70,6 +70,8 @@ type AdminUser
     email: String!
     lang_uuid: ID!
     lang: AdminLang!
+    permissions: [AdminPermission]
+    profiles: [AdminProfile]
     username: String!
     is_active: Boolean!
     created_at: DateTime

@@ -39,7 +39,7 @@ class AuthResolver
 
         if($user && $user->username)
         {
-            return User::where('username', $user->username)->first()->permissionsd;
+            return User::where('username', $user->username)->first()->permissions;
         }
     }
 }

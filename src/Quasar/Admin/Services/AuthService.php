@@ -31,7 +31,7 @@ class AuthService
             'email'     => $user->email,
             'lang'      => $user->lang,
             'iat'       => $date->format('X'),
-            'nbf'       => $date->addSeconds(30)->format('X')
+            'nbf'       => $date->addSeconds(3000)->format('X')
         ];
 
         $payload2 = [ 
@@ -40,7 +40,7 @@ class AuthService
             'email'     => $user->email,
             'lang'      => $user->lang,
             'iat'       => $date->format('X'),
-            'nbf'       => $date->addSeconds(60)->format('X')
+            'nbf'       => $date->addSeconds(6000)->format('X')
         ];
 
         return [

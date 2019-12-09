@@ -13,7 +13,7 @@ class PackageService extends CoreService
             'name'      => 'required|between:2,255',
             'root'      => 'required|between:2,255',
             'sort'      => 'required|integer|min:0',
-            'is_active' => 'boolean',
+            'isActive'  => 'boolean',
         ]);
 
         // set uuid
@@ -30,7 +30,7 @@ class PackageService extends CoreService
             'name'      => 'between:2,255',
             'root'      => 'between:2,255',
             'sort'      => 'integer|min:0',
-            'is_active' => 'boolean',
+            'isActive'  => 'boolean',
         ]);
 
         $object = Package::findOrFail($id);

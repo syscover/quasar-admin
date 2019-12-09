@@ -11,7 +11,7 @@ class PermissionService extends CoreService
     {
         $this->validate($data, [
             'name'          => 'required|between:2,255',
-            'package_uuid'  => 'required|uuid|size:36|exists:admin_package,uuid',
+            'packageUuid'   => 'required|uuid|size:36|exists:admin_package,uuid',
         ]);
 
         // set uuid
@@ -26,7 +26,7 @@ class PermissionService extends CoreService
             'id'            => 'required|integer',
             'uuid'          => 'required|size:36',
             'name'          => 'between:2,255',
-            'package_uuid'  => 'uuid|size:36|exists:admin_package,uuid',
+            'packageUuid'   => 'uuid|size:36|exists:admin_package,uuid',
         ]);
 
         $object = Permission::findOrFail($id);

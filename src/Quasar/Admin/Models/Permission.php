@@ -10,7 +10,7 @@ use Quasar\Core\Models\CoreModel;
 class Permission extends CoreModel
 {
     protected $table        = 'admin_permission';
-    protected $fillable     = ['id', 'uuid', 'name', 'package_uuid'];
+    protected $fillable     = ['id', 'uuid', 'name', 'packageUuid'];
     public $with            = ['package'];
 
     public function package()

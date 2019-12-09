@@ -10,5 +10,5 @@ use Quasar\Core\Models\CoreModel;
 class Role extends CoreModel
 {
     protected $table        = 'admin_role';
-    protected $fillable     = ['id', 'uuid', 'name', 'is_master'];
+    protected $fillable     = ['id', 'uuid', 'name', 'isMaster'];
 }

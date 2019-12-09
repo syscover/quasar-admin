@@ -11,7 +11,7 @@ class RoleService extends CoreService
     {
         $this->validate($data, [
             'name'      => 'required|between:2,255',
-            'is_master' => 'boolean',
+            'isMaster'  => 'boolean',
         ]);
 
         // set uuid
@@ -26,7 +26,7 @@ class RoleService extends CoreService
             'id'        => 'required|integer',
             'uuid'      => 'required|size:36',
             'name'      => 'between:2,255',
-            'is_master' => 'boolean',
+            'isMaster'  => 'boolean',
         ]);
 
         $object = Role::findOrFail($id);

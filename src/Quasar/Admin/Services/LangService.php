@@ -12,15 +12,12 @@ class LangService extends CoreService
         $this->validate($data, [
             'name'      => 'required|between:2,255',
             'image'     => 'between:2,255',
-            'iso_639_2' => 'size:2',
-            'iso_639_3' => 'size:3',
+            'iso6392'   => 'size:2',
+            'iso6393'   => 'size:3',
             'ietf'      => 'size:5',
             'sort'      => 'min:0|integer',
-            'is_active' => 'boolean'
+            'isActive' => 'boolean'
         ]);
-        
-        // set uuid
-        $data['uuid'] = Str::uuid();
 
         return Lang::create($data)->fresh();
     }
@@ -32,11 +29,11 @@ class LangService extends CoreService
             'uuid'      => 'required|size:36',
             'name'      => 'between:2,255',
             'image'     => 'between:2,255',
-            'iso_639_2' => 'size:2',
-            'iso_639_3' => 'size:3',
+            'iso6392'   => 'size:2',
+            'iso6393'   => 'size:3',
             'ietf'      => 'size:5',
             'sort'      => 'min:0|integer',
-            'is_active' => 'boolean'
+            'isActive'  => 'boolean'
         ]);
 
         $object = Lang::findOrFail($id);

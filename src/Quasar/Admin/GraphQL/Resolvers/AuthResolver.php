@@ -35,6 +35,11 @@ class AuthResolver
 
     public function permissions($root, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
-        return [];
+        $user = AuthService::decode(Str::after($context->request->header('Authorization'), 'Bearer '));
+
+        if($user && $user->username)
+        {
+            return User::where('username', $user->username)->first()->permissionsd;
+        }
     }
 }

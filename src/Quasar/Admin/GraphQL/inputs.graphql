@@ -11,11 +11,11 @@ input AdminLangInput
     uuid: ID
     name: String!
     image: String
-    iso_639_2: String!
-    iso_639_3: String!
+    iso6392: String!
+    iso6393: String!
     ietf: String!
     sort: Int
-    is_active: Boolean
+    isActive: Boolean
 }
 
 input AdminPackageInput 
@@ -25,7 +25,7 @@ input AdminPackageInput
     name: String!
     root: String!
     sort: Int!
-    is_active: Boolean
+    isActive: Boolean
 }
 
 input AdminPermissionInput 
@@ -33,7 +33,7 @@ input AdminPermissionInput
     id: Int
     uuid: ID
     name: String!
-    package_uuid: ID!
+    packageUuid: ID!
 }
 
 input AdminProfileInput 
@@ -48,7 +48,7 @@ input AdminRoleInput
     id: Int
     uuid: ID
     name: String!
-    is_master: Boolean!
+    isMaster: Boolean!
 }
 
 input AdminUserInput 
@@ -58,9 +58,9 @@ input AdminUserInput
     name: String!
     surname: String
     email: String!
-    lang_uuid: ID!
+    langUuid: ID!
     username: String!
     password: String
-    is_active: Boolean!
+    isActive: Boolean!
 }
 

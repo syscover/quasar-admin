@@ -10,13 +10,13 @@ type AdminLang
     uuid: ID!
     name: String!
     image: String
-    iso_639_2: String!
-    iso_639_3: String!
+    iso6392: String!
+    iso6393: String!
     ietf: String!
     sort: Int
-    is_active: Boolean!
-    created_at: DateTime
-    updated_at: DateTime
+    isActive: Boolean!
+    createdAt: DateTime
+    updatedAt: DateTime
 }
 
 type AdminPackage 
@@ -26,9 +26,9 @@ type AdminPackage
     name: String!
     root: String!
     sort: Int!
-    is_active: Boolean!
-    created_at: DateTime
-    updated_at: DateTime
+    isActive: Boolean!
+    createdAt: DateTime
+    updatedAt: DateTime
 }
 
 type AdminPermission
@@ -36,10 +36,10 @@ type AdminPermission
     id: Int!
     uuid: ID!
     name: String!
-    package_uuid: ID!
+    packageUuid: ID!
     package: AdminPackage!
-    created_at: DateTime
-    updated_at: DateTime
+    createdAt: DateTime
+    updatedAt: DateTime
 }
 
 type AdminProfile
@@ -47,8 +47,8 @@ type AdminProfile
     id: Int!
     uuid: ID!
     name: String!
-    created_at: DateTime
-    updated_at: DateTime
+    createdAt: DateTime
+    updatedAt: DateTime
 }
 
 type AdminRole
@@ -56,9 +56,9 @@ type AdminRole
     id: Int!
     uuid: ID!
     name: String!
-    is_master: Boolean!
-    created_at: DateTime
-    updated_at: DateTime
+    isMaster: Boolean!
+    createdAt: DateTime
+    updatedAt: DateTime
 }
 
 type AdminUser
@@ -68,12 +68,12 @@ type AdminUser
     name: String!
     surname: String
     email: String!
-    lang_uuid: ID!
+    langUuid: ID!
     lang: AdminLang!
     permissions: [AdminPermission]
     profiles: [AdminProfile]
     username: String!
-    is_active: Boolean!
-    created_at: DateTime
-    updated_at: DateTime
+    isActive: Boolean!
+    createdAt: DateTime
+    updatedAt: DateTime
 }

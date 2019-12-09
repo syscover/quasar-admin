@@ -48,4 +48,22 @@ class AuthService
             'refreshToken'  => JWT::encode($payload2, $key)
         ];
     }
+
+    public static function me()
+    {
+        // 
+        /* const user = <UserDto>this._authService.decode(context.req.headers.authorization.replace('Bearer ', ''));
+
+        if (user && user.username)
+        {
+            return this._userService.findByUsername(user.username);
+        }
+        return null; */
+    }
+
+    public static function decode(string $encode)
+    {
+        $key = '123456';
+        return JWT::decode($encode, $key, ['HS256']);
+    }
 }

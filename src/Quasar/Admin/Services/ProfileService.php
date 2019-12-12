@@ -16,7 +16,7 @@ class ProfileService extends CoreService
         return Profile::create($data)->fresh();
     }
 
-    public function update(array $data, int $id)
+    public function update(array $data, string $uuid)
     {
         $this->validate($data, [
             'id'    => 'required|integer',
@@ -24,7 +24,7 @@ class ProfileService extends CoreService
             'name'  => 'between:2,255'
         ]);
 
-        $object = Profile::findOrFail($id);
+        $object = Profile::where('uuid', $uuid)->first();
 
         $object->fill($data);
 

@@ -26,7 +26,7 @@ class UserService extends CoreService
         return User::create($data)->fresh();
     }
 
-    public function update(array $data, int $id)
+    public function update(array $data, string $uuid)
     {
         $this->validate($data, [
             'id'        => 'required|integer',
@@ -40,7 +40,7 @@ class UserService extends CoreService
             'password'  => 'between:2,255'
         ]);
 
-        $object = User::findOrFail($id);
+        $object = User::where('uuid', $uuid)->first();
 
         // check if there is password
         if ($data['password'] ?? false) $data['password'] = Hash::make($data['password']);

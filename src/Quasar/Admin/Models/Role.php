@@ -19,7 +19,7 @@ class Role extends CoreModel
     public function permissions()
     {
         return $this->belongsToMany(
-            Role::class,
+            Permission::class,
             'admin_permissions_roles',
             'role_uuid',
             'permission_uuid',

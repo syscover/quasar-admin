@@ -22,7 +22,7 @@ class RoleService extends CoreService
         return $object;
     }
 
-    public function update(array $data, int $id)
+    public function update(array $data, string $uuid)
     {
         $this->validate($data, [
             'id'        => 'required|integer',
@@ -31,7 +31,7 @@ class RoleService extends CoreService
             'isMaster'  => 'nullable|boolean',
         ]);
 
-        $object = Role::findOrFail($id);
+        $object = Role::where('uuid', $uuid)->first();
 
         $object->fill($data);
 

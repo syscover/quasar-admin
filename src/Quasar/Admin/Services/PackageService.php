@@ -19,7 +19,7 @@ class PackageService extends CoreService
         return Package::create($data)->fresh();
     }
 
-    public function update(array $data, int $id)
+    public function update(array $data, string $uuid)
     {
         $this->validate($data, [
             'id'        => 'required|integer',
@@ -30,7 +30,7 @@ class PackageService extends CoreService
             'isActive'  => 'boolean',
         ]);
 
-        $object = Package::findOrFail($id);
+        $object = Package::where('uuid', $uuid)->first();
 
         $object->fill($data);
 

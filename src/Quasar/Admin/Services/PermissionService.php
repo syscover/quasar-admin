@@ -17,7 +17,7 @@ class PermissionService extends CoreService
         return Permission::create($data)->fresh();
     }
 
-    public function update(array $data, int $id)
+    public function update(array $data, string $uuid)
     {
         $this->validate($data, [
             'id'            => 'required|integer',
@@ -26,7 +26,7 @@ class PermissionService extends CoreService
             'packageUuid'   => 'uuid|exists:admin_package,uuid',
         ]);
 
-        $object = Permission::findOrFail($id);
+        $object = Permission::where('uuid', $uuid)->first();
 
         $object->fill($data);
 

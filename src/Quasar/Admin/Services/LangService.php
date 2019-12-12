@@ -22,7 +22,7 @@ class LangService extends CoreService
         return Lang::create($data)->fresh();
     }
 
-    public function update(array $data, int $id)
+    public function update(array $data, string $uuid)
     {
         $this->validate($data, [
             'id'        => 'required|integer',
@@ -36,7 +36,7 @@ class LangService extends CoreService
             'isActive'  => 'boolean'
         ]);
 
-        $object = Lang::findOrFail($id);
+        $object = Lang::where('uuid', $uuid)->first();
 
         $object->fill($data);
 

@@ -1,6 +1,5 @@
 <?php namespace Quasar\Admin\Services;
 
-use Illuminate\Support\Str;
 use Quasar\Core\Services\CoreService;
 use Quasar\Core\Exceptions\ModelNotChangeException;
 use Quasar\Admin\Models\Role;
@@ -10,23 +9,26 @@ class RoleService extends CoreService
     public function create(array $data)
     {
         $this->validate($data, [
+            'uuid'      => 'nullable|uuid',
             'name'      => 'required|between:2,255',
-            'isMaster'  => 'boolean',
+            'isMaster'  => 'nullable|boolean',
         ]);
 
-        // set uuid
-        $data['uuid'] = Str::uuid();
+        $object = Role::create($data)->fresh();
 
-        return Role::create($data)->fresh();
+        // create permissions
+        $object->permissions()->sync($data['permissionsUuid']);
+
+        return $object;
     }
 
     public function update(array $data, int $id)
     {
         $this->validate($data, [
             'id'        => 'required|integer',
-            'uuid'      => 'required|size:36',
+            'uuid'      => 'required|uuid',
             'name'      => 'between:2,255',
-            'isMaster'  => 'boolean',
+            'isMaster'  => 'nullable|boolean',
         ]);
 
         $object = Role::findOrFail($id);
@@ -38,6 +40,9 @@ class RoleService extends CoreService
 
         // save changes
         $object->save();
+
+        // update permissions
+        $object->permissions()->sync($data['permissionsUuid']);
 
         return $object;
     }

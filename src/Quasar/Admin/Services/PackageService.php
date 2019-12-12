@@ -1,6 +1,5 @@
 <?php namespace Quasar\Admin\Services;
 
-use Illuminate\Support\Str;
 use Quasar\Core\Services\CoreService;
 use Quasar\Core\Exceptions\ModelNotChangeException;
 use Quasar\Admin\Models\Package;
@@ -10,14 +9,12 @@ class PackageService extends CoreService
     public function create(array $data)
     {
         $this->validate($data, [
+            'uuid'      => 'nullable|uuid',
             'name'      => 'required|between:2,255',
             'root'      => 'required|between:2,255',
             'sort'      => 'required|integer|min:0',
-            'isActive'  => 'boolean',
+            'isActive'  => 'nullable|boolean',
         ]);
-
-        // set uuid
-        $data['uuid'] = Str::uuid();
 
         return Package::create($data)->fresh();
     }
@@ -26,7 +23,7 @@ class PackageService extends CoreService
     {
         $this->validate($data, [
             'id'        => 'required|integer',
-            'uuid'      => 'required|size:36',
+            'uuid'      => 'required|uuid',
             'name'      => 'between:2,255',
             'root'      => 'between:2,255',
             'sort'      => 'integer|min:0',

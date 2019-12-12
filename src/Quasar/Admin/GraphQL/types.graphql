@@ -57,6 +57,7 @@ type AdminRole
     uuid: ID!
     name: String!
     isMaster: Boolean!
+    permissions: [AdminRole]!
     createdAt: DateTime
     updatedAt: DateTime
 }

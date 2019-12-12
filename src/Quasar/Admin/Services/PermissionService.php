@@ -1,6 +1,5 @@
 <?php namespace Quasar\Admin\Services;
 
-use Illuminate\Support\Str;
 use Quasar\Core\Services\CoreService;
 use Quasar\Core\Exceptions\ModelNotChangeException;
 use Quasar\Admin\Models\Permission;
@@ -10,12 +9,10 @@ class PermissionService extends CoreService
     public function create(array $data)
     {
         $this->validate($data, [
+            'uuid'          => 'nullable|uuid',
             'name'          => 'required|between:2,255',
-            'packageUuid'   => 'required|uuid|size:36|exists:admin_package,uuid',
+            'packageUuid'   => 'required|uuid|exists:admin_package,uuid',
         ]);
-
-        // set uuid
-        $data['uuid'] = Str::uuid();
 
         return Permission::create($data)->fresh();
     }
@@ -24,9 +21,9 @@ class PermissionService extends CoreService
     {
         $this->validate($data, [
             'id'            => 'required|integer',
-            'uuid'          => 'required|size:36',
+            'uuid'          => 'required|uuid',
             'name'          => 'between:2,255',
-            'packageUuid'   => 'uuid|size:36|exists:admin_package,uuid',
+            'packageUuid'   => 'uuid|exists:admin_package,uuid',
         ]);
 
         $object = Permission::findOrFail($id);

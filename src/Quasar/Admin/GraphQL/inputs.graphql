@@ -49,6 +49,7 @@ input AdminRoleInput
     uuid: ID
     name: String!
     isMaster: Boolean!
+    permissionsUuid: [ID]
 }
 
 input AdminUserInput 

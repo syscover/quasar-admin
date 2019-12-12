@@ -1,6 +1,5 @@
 <?php namespace Quasar\Admin\Services;
 
-use Illuminate\Support\Str;
 use Quasar\Core\Services\CoreService;
 use Quasar\Core\Exceptions\ModelNotChangeException;
 use Quasar\Admin\Models\Lang;
@@ -10,13 +9,14 @@ class LangService extends CoreService
     public function create(array $data)
     {
         $this->validate($data, [
+            'uuid'      => 'nullable|uuid',
             'name'      => 'required|between:2,255',
-            'image'     => 'between:2,255',
-            'iso6392'   => 'size:2',
-            'iso6393'   => 'size:3',
-            'ietf'      => 'size:5',
-            'sort'      => 'min:0|integer',
-            'isActive' => 'boolean'
+            'image'     => 'nullable|between:2,255',
+            'iso6392'   => 'required|size:2',
+            'iso6393'   => 'required|size:3',
+            'ietf'      => 'required|size:5',
+            'sort'      => 'nullable|min:0|integer',
+            'isActive'  => 'nullable|boolean'
         ]);
 
         return Lang::create($data)->fresh();
@@ -26,7 +26,7 @@ class LangService extends CoreService
     {
         $this->validate($data, [
             'id'        => 'required|integer',
-            'uuid'      => 'required|size:36',
+            'uuid'      => 'required|uuid',
             'name'      => 'between:2,255',
             'image'     => 'between:2,255',
             'iso6392'   => 'size:2',

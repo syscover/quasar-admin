@@ -1,7 +1,6 @@
 <?php namespace Quasar\Admin\Services;
 
 use Quasar\Core\Services\CoreService;
-use Quasar\Core\Exceptions\ModelNotChangeException;
 use Quasar\Admin\Models\Lang;
 
 class LangService extends CoreService
@@ -38,10 +37,8 @@ class LangService extends CoreService
 
         $object = Lang::where('uuid', $uuid)->first();
 
+        // fill data
         $object->fill($data);
-
-        // check is model
-        if ($object->isClean()) throw new ModelNotChangeException('At least one value must change');
 
         // save changes
         $object->save();

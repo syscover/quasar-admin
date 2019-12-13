@@ -71,6 +71,7 @@ type AdminUser
     email: String!
     langUuid: ID!
     lang: AdminLang!
+    roles: [AdminRole]
     permissions: [AdminPermission]
     profiles: [AdminProfile]
     username: String!

@@ -1,8 +1,8 @@
 <?php namespace Quasar\Admin\Services;
 
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Arr;
 use Quasar\Core\Services\CoreService;
-use Quasar\Core\Exceptions\ModelNotChangeException;
 use Quasar\Admin\Models\User;
 
 class UserService extends CoreService
@@ -34,24 +34,28 @@ class UserService extends CoreService
             'name'      => 'between:2,255',
             'surname'   => 'between:2,255',
             'email'     => 'email:rfc,dns|between:2,255',
-            'langUuid'  => 'uuid|exist:admin_lang,uuid',
+            'langUuid'  => 'uuid|exists:admin_lang,uuid',
             'isActive'  => 'boolean',
             'username'  => 'between:2,255',
-            'password'  => 'between:2,255'
+            'password'  => 'nullable|between:2,255'
         ]);
 
         $object = User::where('uuid', $uuid)->first();
 
         // check if there is password
-        if ($data['password'] ?? false) $data['password'] = Hash::make($data['password']);
+        if ($data['password'] ?? false) $data['password'] = Hash::make($data['password']); else Arr::forget($data, 'password');
 
+        // fill data
         $object->fill($data);
-
-        // check is model
-        if ($object->isClean()) throw new ModelNotChangeException('At least one value must change');
 
         // save changes
         $object->save();
+
+        // update roles
+        $object->roles()->sync($data['rolesUuid']);
+
+        // update profiles
+        $object->profiles()->sync($data['profilesUuid']);
 
         return $object;
     }

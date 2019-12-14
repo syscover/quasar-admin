@@ -21,9 +21,9 @@ class AdminCreateTableLang extends Migration
                 $table->uuid('uuid');
                 $table->string('name');
                 $table->string('image')->nullable();
-                $table->string('iso_639_2', 2);
-                $table->string('iso_639_3', 3);
-                $table->string('ietf', 5);
+                $table->char('iso_639_2', 2);
+                $table->char('iso_639_3', 3);
+                $table->char('ietf', 5);
 				$table->smallInteger('sort')->unsigned()->nullable();
 				$table->boolean('is_active')->default(false);
 

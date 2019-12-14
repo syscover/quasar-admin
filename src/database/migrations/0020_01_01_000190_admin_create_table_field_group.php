@@ -3,8 +3,8 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AdminCreateTableFieldGroup extends Migration {
-
+class AdminCreateTableFieldGroup extends Migration 
+{
     /**
      * Run the migrations.
      *

@@ -3,6 +3,11 @@ adminCredentials(credentials: AdminCredentialsInput!): AdminCredentials! @field(
 adminMe: AdminUser @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AuthResolver@me")
 adminMePermissions: [AdminPermission] @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AuthResolver@permissions")
 
+# FieldGroup
+adminFieldGroup(query:[QueryStatementInput]): AdminFieldGroup @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldGroupResolver@find")
+adminFieldGroups(query:[QueryStatementInput]): [AdminFieldGroup!]! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldGroupResolver@get")
+adminFieldGroupsPagination(query:[QueryStatementInput]): Pagination! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldGroupResolver@paginate")
+
 # Lang
 adminLang(query:[QueryStatementInput]): AdminLang @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\LangResolver@find")
 adminLangs(query:[QueryStatementInput]): [AdminLang!]! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\LangResolver@get")

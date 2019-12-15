@@ -1,20 +1,19 @@
 <?php namespace Quasar\Admin\Services;
 
 use Quasar\Core\Services\CoreService;
-use Quasar\Admin\Models\Resource;
+use Quasar\Admin\Models\FieldGroup;
 
-class ResourceService extends CoreService
+class FieldGroupService extends CoreService
 {
     public function create(array $data)
     {
         $this->validate($data, [
             'uuid'          => 'nullable|uuid',
-            'packageUuid'   => 'required|uuid|exists:admin_package,uuid',
             'name'          => 'required|between:2,255',
-            'hasFieldGroup' => 'nullable|boolean',
+            'resourceUuid'  => 'required|uuid|exists:admin_resource,uuid',
         ]);
 
-        return Resource::create($data)->fresh();
+        return FieldGroup::create($data)->fresh();
     }
 
     public function update(array $data, string $uuid)
@@ -22,12 +21,11 @@ class ResourceService extends CoreService
         $this->validate($data, [
             'id'            => 'required|integer',
             'uuid'          => 'required|uuid',
-            'packageUuid'   => 'uuid|exists:admin_package,uuid',
             'name'          => 'between:2,255',
-            'hasFieldGroup' => 'boolean',
+            'resourceUuid'  => 'uuid|exists:admin_resource,uuid',
         ]);
 
-        $object = Resource::where('uuid', $uuid)->first();
+        $object = FieldGroup::where('uuid', $uuid)->first();
 
         // fill data
         $object->fill($data);

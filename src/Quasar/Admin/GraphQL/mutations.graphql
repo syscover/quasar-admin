@@ -3,6 +3,11 @@ adminCreateLang(payload:AdminLangInput!): AdminLang @field(resolver: "Quasar\\Ad
 adminUpdateLang(payload:AdminLangInput!): AdminLang @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\LangResolver@update")
 adminDeleteLang(uuid:ID!): AdminLang @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\LangResolver@delete")
 
+# FieldGroup
+adminCreateFieldGroup(payload:AdminFieldGroupInput!): AdminFieldGroup @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldGroupResolver@create")
+adminUpdateFieldGroup(payload:AdminFieldGroupInput!): AdminFieldGroup @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldGroupResolver@update")
+adminDeleteFieldGroup(uuid:ID!): AdminFieldGroup @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldGroupResolver@delete")
+
 # Package
 adminCreatePackage(payload:AdminPackageInput!): AdminPackage @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\PackageResolver@create")
 adminUpdatePackage(payload:AdminPackageInput!): AdminPackage @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\PackageResolver@update")

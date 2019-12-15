@@ -4,6 +4,17 @@ type AdminCredentials
     refreshToken: String!
 }
 
+type AdminFieldGroup
+{
+    id: Int!
+    uuid: ID!
+    name: String!
+    resourceUuid: ID!
+    resource: AdminResource!
+    createdAt: DateTime
+    updatedAt: DateTime
+}
+
 type AdminLang 
 {
     id: Int!
@@ -55,9 +66,10 @@ type AdminResource
 {
     id: Int!
     uuid: ID!
-    name: String!
     packageUuid: ID!
     package: AdminPackage!
+    name: String!
+    hasFieldGroup: Boolean!
     createdAt: DateTime
     updatedAt: DateTime
 }

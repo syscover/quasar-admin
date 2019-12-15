@@ -5,6 +5,14 @@ input AdminCredentialsInput
     grantType: String!
 }
 
+input AdminFieldGroupInput 
+{
+    id: Int
+    uuid: ID
+    name: String!
+    resourceUuid: ID!
+}
+
 input AdminLangInput 
 {
     id: Int
@@ -47,8 +55,9 @@ input AdminResourceInput
 {
     id: Int
     uuid: ID
-    name: String!
     packageUuid: ID!
+    name: String!
+    hasFieldGroup: Boolean
 }
 
 input AdminRoleInput 

@@ -23,6 +23,11 @@ adminProfile(query:[QueryStatementInput]): AdminProfile @field(resolver: "Quasar
 adminProfiles(query:[QueryStatementInput]): [AdminProfile!]! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\ProfileResolver@get")
 adminProfilesPagination(query:[QueryStatementInput]): Pagination! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\ProfileResolver@paginate")
 
+# Resource
+adminResource(query:[QueryStatementInput]): AdminResource @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\ResourceResolver@find")
+adminResources(query:[QueryStatementInput]): [AdminResource!]! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\ResourceResolver@get")
+adminResourcesPagination(query:[QueryStatementInput]): Pagination! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\ResourceResolver@paginate")
+
 # Role
 adminRole(query:[QueryStatementInput]): AdminRole @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\RoleResolver@find")
 adminRoles(query:[QueryStatementInput]): [AdminRole!]! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\RoleResolver@get")

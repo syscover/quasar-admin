@@ -51,6 +51,17 @@ type AdminProfile
     updatedAt: DateTime
 }
 
+type AdminResource
+{
+    id: Int!
+    uuid: ID!
+    name: String!
+    packageUuid: ID!
+    package: AdminPackage!
+    createdAt: DateTime
+    updatedAt: DateTime
+}
+
 type AdminRole
 {
     id: Int!

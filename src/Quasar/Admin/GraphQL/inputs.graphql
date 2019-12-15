@@ -43,6 +43,14 @@ input AdminProfileInput
     name: String!
 }
 
+input AdminResourceInput 
+{
+    id: Int
+    uuid: ID
+    name: String!
+    packageUuid: ID!
+}
+
 input AdminRoleInput 
 {
     id: Int

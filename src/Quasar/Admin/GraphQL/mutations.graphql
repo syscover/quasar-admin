@@ -18,6 +18,11 @@ adminCreateProfile(payload:AdminProfileInput!): AdminProfile @field(resolver: "Q
 adminUpdateProfile(payload:AdminProfileInput!): AdminProfile @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\ProfileResolver@update")
 adminDeleteProfile(uuid:ID!): AdminProfile @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\ProfileResolver@delete")
 
+# Resource
+adminCreateResource(payload:AdminResourceInput!): AdminResource @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\ResourceResolver@create")
+adminUpdateResource(payload:AdminResourceInput!): AdminResource @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\ResourceResolver@update")
+adminDeleteResource(uuid:ID!): AdminResource @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\ResourceResolver@delete")
+
 # Role
 adminCreateRole(payload:AdminRoleInput!): AdminRole @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\RoleResolver@create")
 adminUpdateRole(payload:AdminRoleInput!): AdminRole @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\RoleResolver@update")

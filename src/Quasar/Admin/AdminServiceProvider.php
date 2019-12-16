@@ -1,7 +1,6 @@
 <?php namespace Nimbl\Admin;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Console\Scheduling\Schedule;
 
 class AdminServiceProvider extends ServiceProvider
 {

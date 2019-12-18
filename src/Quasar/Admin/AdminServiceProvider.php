@@ -1,4 +1,4 @@
-<?php namespace Nimbl\Admin;
+<?php namespace Quasar\Admin;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -12,7 +12,7 @@ class AdminServiceProvider extends ServiceProvider
 	public function boot()
 	{
         // register migrations
-        $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
 
         // register seeds
         $this->publishes([

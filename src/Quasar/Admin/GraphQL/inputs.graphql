@@ -1,3 +1,17 @@
+input AdminAttachmentFamilyInput 
+{
+    id: Int
+    uuid: ID
+    resourceUuid: ID!
+    name: String!
+    width: Int
+    height: Int
+    fitType: Int
+    sizes: [String]
+    quality: Int
+    format: String
+}
+
 input AdminCredentialsInput
 {
     username: String!

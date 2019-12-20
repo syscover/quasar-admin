@@ -1,3 +1,18 @@
+type AdminAttachmentFamily 
+{
+    id: Int!
+    uuid: ID!
+    resourceUuid: String!
+    resource: AdminResource!
+    name: String
+    width: Int
+    height: Int
+    fitType: Int
+    sizes: [String]
+    quality: Int
+    format: String
+}
+
 type AdminCredentials
 {
     accessToken: String!

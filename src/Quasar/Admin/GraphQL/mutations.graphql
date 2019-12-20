@@ -1,3 +1,8 @@
+# AttachmentFamily
+adminCreateAttachmentFamily(payload:AdminAttachmentFamilyInput!): AdminAttachmentFamily @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AttachmentFamilyResolver@create")
+adminUpdateAttachmentFamily(payload:AdminAttachmentFamilyInput!): AdminAttachmentFamily @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AttachmentFamilyResolver@update")
+adminDeleteAttachmentFamily(uuid:ID!): AdminAttachmentFamily @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AttachmentFamilyResolver@delete")
+
 # Lang
 adminCreateLang(payload:AdminLangInput!): AdminLang @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\LangResolver@create")
 adminUpdateLang(payload:AdminLangInput!): AdminLang @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\LangResolver@update")

@@ -1,3 +1,8 @@
+# AttachmentFamily
+adminAttachmentFamily(query:[QueryStatementInput]): AdminAttachmentFamily @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AttachmentFamilyResolver@find")
+adminAttachmentFamilies(query:[QueryStatementInput]): [AdminAttachmentFamily!]! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AttachmentFamilyResolver@get")
+adminAttachmentFamiliesPagination(query:[QueryStatementInput]): Pagination! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AttachmentFamilyResolver@paginate")
+
 # Authorization
 adminCredentials(credentials: AdminCredentialsInput!): AdminCredentials! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AuthResolver@credentials")
 adminMe: AdminUser @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AuthResolver@me")

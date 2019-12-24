@@ -1,10 +1,9 @@
 <?php namespace Quasar\Admin\Services;
 
-use Quasar\Core\Services\Service;
-use Quasar\Core\Exceptions\ModelNotChangeException;
+use Quasar\Core\Services\CoreService;
 use Quasar\Admin\Models\AttachmentFamily;
 
-class AttachmentFamilyService extends Service
+class AttachmentFamilyService extends CoreService
 {
     public function store(array $data)
     {

@@ -11,6 +11,8 @@ type AdminAttachmentFamily
     sizes: [String]
     quality: Int
     format: String
+    createdAt: DateTime
+    updatedAt: DateTime
 }
 
 type AdminCredentials

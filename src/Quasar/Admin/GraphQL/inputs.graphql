@@ -71,7 +71,8 @@ input AdminResourceInput
     uuid: ID
     packageUuid: ID!
     name: String!
-    hasFieldGroup: Boolean
+    hasCustomFields: Boolean
+    hasAttachments: Boolean
 }
 
 input AdminRoleInput 

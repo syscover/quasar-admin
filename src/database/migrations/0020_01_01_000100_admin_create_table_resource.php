@@ -21,7 +21,8 @@ class AdminCreateTableResource extends Migration
                 $table->uuid('uuid');
 				$table->uuid('package_uuid');
                 $table->string('name');
-                $table->boolean('has_field_group')->default(false);
+                $table->boolean('has_custom_fields')->default(false);
+                $table->boolean('has_attachments')->default(false);
 
                 $table->timestamps();
                 $table->softDeletes();

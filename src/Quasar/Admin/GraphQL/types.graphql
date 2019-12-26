@@ -86,7 +86,8 @@ type AdminResource
     packageUuid: ID!
     package: AdminPackage!
     name: String!
-    hasFieldGroup: Boolean!
+    hasCustomFields: Boolean!
+    hasAttachments: Boolean!
     createdAt: DateTime
     updatedAt: DateTime
 }

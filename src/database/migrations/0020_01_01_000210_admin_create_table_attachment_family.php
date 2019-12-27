@@ -23,7 +23,7 @@ class AdminCreateTableAttachmentFamily extends Migration {
                 $table->string('name');
                 $table->smallInteger('width')->unsigned()->nullable();
                 $table->smallInteger('height')->unsigned()->nullable();
-                $table->tinyInteger('fit_type')->unsigned()->nullable(); // 1 = crop, 2 = width, 3 = height, 4 = width free crop, 5 = height free crop
+                $table->uuid('fit_type_uuid')->nullable(); // 1 = crop, 2 = width, 3 = height, 4 = width free crop, 5 = height free crop
                 $table->json('sizes')->nullable();
                 $table->tinyInteger('quality')->unsigned()->nullable();
                 $table->string('format', 10)->nullable();

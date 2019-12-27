@@ -7,8 +7,8 @@ type AdminAttachmentFamily
     name: String
     width: Int
     height: Int
-    fitType: Int
-    sizes: [String]
+    fitTypeUuid: ID
+    sizes: [Int]
     quality: Int
     format: String
     createdAt: DateTime

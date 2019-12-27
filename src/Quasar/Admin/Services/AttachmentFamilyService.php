@@ -5,14 +5,15 @@ use Quasar\Admin\Models\AttachmentFamily;
 
 class AttachmentFamilyService extends CoreService
 {
-    public function store(array $data)
+    public function create(array $data)
     {
         $this->validate($data, [
-            'resourceUuid'  => 'required|exists:admin_resource,id',
+            'uuid'          => 'nullable|uuid',
+            'resourceUuid'  => 'required|uuid|exists:admin_resource,uuid',
             'name'          => 'required|between:2,255',
             'width'         => 'nullable|integer',
             'height'        => 'nullable|integer',
-            'fitType'       => 'nullable|integer|in:1,2,3,4,5',
+            'fitTypeUuid'   => 'nullable|uuid',
             'sizes'         => 'nullable|array',
             'quality'       => 'nullable|integer|between:1,100',
             'format'        => 'nullable|in:jpg,png,gif,tif,bmp,data-url'
@@ -30,7 +31,7 @@ class AttachmentFamilyService extends CoreService
             'name'          => 'required|between:2,255',
             'width'         => 'nullable|integer',
             'height'        => 'nullable|integer',
-            'fitType'       => 'nullable|integer|in:1,2,3,4,5',
+            'fitTypeUuid'   => 'nullable|uuid',
             'sizes'         => 'nullable|array',
             'quality'       => 'nullable|integer|between:1,100',
             'format'        => 'nullable|in:jpg,png,gif,tif,bmp,data-url'

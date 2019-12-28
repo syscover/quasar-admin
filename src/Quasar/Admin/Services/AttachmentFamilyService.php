@@ -27,7 +27,7 @@ class AttachmentFamilyService extends CoreService
         $this->validate($data, [
             'id'            => 'required|integer',
             'uuid'          => 'required|uuid',
-            'resourceUuid'  => 'required|exists:admin_resource,id',
+            'resourceUuid'  => 'required|exists:admin_resource,uuid',
             'name'          => 'required|between:2,255',
             'width'         => 'nullable|integer',
             'height'        => 'nullable|integer',

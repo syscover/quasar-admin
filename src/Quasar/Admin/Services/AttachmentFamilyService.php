@@ -9,7 +9,7 @@ class AttachmentFamilyService extends CoreService
     {
         $this->validate($data, [
             'uuid'          => 'nullable|uuid',
-            'resourceUuid'  => 'required|uuid|exists:admin_resource,uuid',
+            'resourcesUuid' => 'required|array',
             'name'          => 'required|between:2,255',
             'width'         => 'nullable|integer',
             'height'        => 'nullable|integer',
@@ -19,7 +19,12 @@ class AttachmentFamilyService extends CoreService
             'format'        => 'nullable|in:jpg,png,gif,tif,bmp,data-url'
         ]);
 
-        return AttachmentFamily::create($data)->fresh();
+        $object = AttachmentFamily::create($data)->fresh();
+
+        // update resources
+        $object->resources()->sync($data['resourcesUuid']);
+
+        return $object;
     }
 
     public function update(array $data, string $uuid)
@@ -27,7 +32,7 @@ class AttachmentFamilyService extends CoreService
         $this->validate($data, [
             'id'            => 'required|integer',
             'uuid'          => 'required|uuid',
-            'resourceUuid'  => 'required|exists:admin_resource,uuid',
+            'resourcesUuid' => 'required|array',
             'name'          => 'required|between:2,255',
             'width'         => 'nullable|integer',
             'height'        => 'nullable|integer',
@@ -44,6 +49,11 @@ class AttachmentFamilyService extends CoreService
 
         // save changes
         $object->save();
+
+        // update resources
+        $object->resources()->sync($data['resourcesUuid']);
+
+        return $object;
 
         return $object;
     }

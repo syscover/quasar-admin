@@ -10,14 +10,21 @@ use Quasar\Core\Models\CoreModel;
 class AttachmentFamily extends CoreModel
 {
     protected $table        = 'admin_attachment_family';
-    protected $fillable     = ['id', 'uuid', 'resourceUuid', 'name', 'width', 'height', 'fitTypeUuid', 'sizes', 'quality', 'format'];
-    public $with            = ['resource'];
+    protected $fillable     = ['id', 'uuid', 'name', 'width', 'height', 'fitTypeUuid', 'sizes', 'quality', 'format'];
+    public $with            = ['resources'];
     protected $casts        = [
         'sizes' => 'array'
     ];
 
-    public function resource()
+    public function resources()
     {
-        return $this->belongsTo(Resource::class, 'resource_uuid', 'uuid');
+        return $this->belongsToMany(
+            Resource::class,
+            'admin_attachment_families_resources',
+            'attachment_family_uuid',
+            'resource_uuid',
+            'uuid',
+            'uuid'
+        );
     }
 }

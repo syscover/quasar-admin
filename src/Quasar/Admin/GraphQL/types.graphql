@@ -2,8 +2,7 @@ type AdminAttachmentFamily
 {
     id: Int!
     uuid: ID!
-    resourceUuid: String!
-    resource: AdminResource!
+    resources: [AdminResource]!
     name: String
     width: Int
     height: Int

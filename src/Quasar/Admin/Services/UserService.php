@@ -18,7 +18,7 @@ class UserService extends CoreService
             'rolesUuid'     => 'nullable|array',
             'profilesUuid'  => 'nullable|array',
             'isActive'      => 'nullable|boolean',
-            'username'      => 'required|between:2,255',
+            'username'      => 'required|between:2,255|unique:admin_user,username',
             'password'      => 'required|between:2,255'
         ]);
 
@@ -48,7 +48,7 @@ class UserService extends CoreService
             'rolesUuid'     => 'nullable|array',
             'profilesUuid'  => 'nullable|array',
             'isActive'      => 'boolean',
-            'username'      => 'between:2,255',
+            'username'      => 'between:2,255|unique:admin_user,username,' . $uuid . ',uuid',
             'password'      => 'nullable|between:2,255'
         ]);
 

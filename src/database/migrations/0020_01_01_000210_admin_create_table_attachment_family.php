@@ -19,7 +19,6 @@ class AdminCreateTableAttachmentFamily extends Migration {
                 
                 $table->increments('id');
                 $table->uuid('uuid');
-                $table->uuid('resource_uuid');
                 $table->string('name');
                 $table->smallInteger('width')->unsigned()->nullable();
                 $table->smallInteger('height')->unsigned()->nullable();
@@ -32,11 +31,6 @@ class AdminCreateTableAttachmentFamily extends Migration {
                 $table->softDeletes();
 
                 $table->index('uuid', 'admin_attachment_family_uuid_idx');
-                $table->foreign('resource_uuid', 'admin_attachment_family_resource_uuid_fk')
-                    ->references('uuid')
-                    ->on('admin_resource')
-                    ->onDelete('cascade')
-                    ->onUpdate('cascade');
             });
         }
     }

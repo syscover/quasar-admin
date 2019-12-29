@@ -7,7 +7,7 @@ use Quasar\Admin\Models\User;
 
 class AuthService
 {
-    public static function validateUser(string $username, string $password)
+    public static function validateUser(string $username, string $password): User
     {
         $user = User::where('username', $username)->first();
 

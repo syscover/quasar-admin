@@ -2,7 +2,7 @@ input AdminAttachmentFamilyInput
 {
     id: Int
     uuid: ID
-    resourceUuid: ID!
+    resourcesUuid: [ID]!
     name: String!
     width: Int
     height: Int

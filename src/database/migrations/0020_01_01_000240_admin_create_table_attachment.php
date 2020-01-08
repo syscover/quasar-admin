@@ -27,8 +27,8 @@ class AdminCreateTableAttachment extends Migration {
                 $table->integer('sort')->unsigned()->nullable();
                 $table->string('alt')->nullable();
                 $table->string('title')->nullable();
-                $table->string('base_path', 1024);
-                $table->string('file_name');
+                $table->string('pathname', 1024);
+                $table->string('filename');                             // file name in laravel storage
                 $table->string('url', 1024);
                 $table->string('mime');
                 $table->string('extension');
@@ -36,7 +36,7 @@ class AdminCreateTableAttachment extends Migration {
                 $table->smallInteger('width')->unsigned()->nullable();
                 $table->smallInteger('height')->unsigned()->nullable();
                 $table->uuid('library_uuid')->nullable();                   // original element in library
-                $table->string('library_file_name')->nullable();
+                $table->string('library_filename')->nullable();
                 $table->json('data')->nullable();
 
                 $table->timestamps();

@@ -20,8 +20,8 @@ class AdminCreateTableAttachmentLibrary extends Migration {
                 $table->increments('id');
                 $table->uuid('uuid');
                 $table->string('name');                                 // original image name
-                $table->string('base_path', 1024);
-                $table->string('file_name');                            // file name in laravel storage
+                $table->string('pathname', 1024);
+                $table->string('filename');                             // file name in laravel storage
                 $table->string('url', 1024);                            // url to access file
                 $table->string('mime');                                 // mime type
                 $table->string('extension');

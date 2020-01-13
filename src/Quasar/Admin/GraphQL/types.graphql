@@ -1,3 +1,30 @@
+type AdminAttachment 
+{    
+    id: Int!
+    uuid: ID!
+    commonUuid: ID!
+    langUuid: ID!
+    attachableType: String!
+    attachableUuid: ID!
+    familyUuid: ID
+    family: AdminAttachmentFamily
+    sort: Int
+    alt: String
+    title: String
+    pathname: String
+    filename: String
+    url: String
+    mime: String
+    extension: String
+    size: String
+    width: Int
+    height: Int
+    libraryUuid: ID
+    libraryFilename: String
+    library: AdminAttachmentLibrary
+    data: JSON
+}
+
 type AdminAttachmentFamily 
 {
     id: Int!
@@ -10,6 +37,24 @@ type AdminAttachmentFamily
     sizes: [Int]
     quality: Int
     format: String
+    createdAt: DateTime
+    updatedAt: DateTime
+}
+
+type AdminAttachmentLibrary 
+{
+    id: Int!
+    uuid: ID!
+    name: String
+    pathname: String
+    filename: String
+    url: String
+    mime: String
+    extension: String
+    size: String
+    width: Int
+    height: Int
+    data: JSON
     createdAt: DateTime
     updatedAt: DateTime
 }

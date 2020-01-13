@@ -10,7 +10,7 @@ use Quasar\Core\Models\CoreModel;
 class AttachmentFamily extends CoreModel
 {
     protected $table        = 'admin_attachment_family';
-    protected $fillable     = ['id', 'uuid', 'name', 'width', 'height', 'fitTypeUuid', 'sizes', 'quality', 'format'];
+    protected $fillable     = ['uuid', 'name', 'width', 'height', 'fitTypeUuid', 'sizes', 'quality', 'format'];
     public $with            = ['resources'];
     protected $casts        = [
         'sizes' => 'array'

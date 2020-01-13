@@ -10,7 +10,7 @@ use Quasar\Core\Models\CoreModel;
 class Resource extends CoreModel
 {
     protected $table        = 'admin_resource';
-    protected $fillable     = ['id', 'uuid', 'packageUuid', 'name', 'hasCustomFields', 'hasAttachments'];
+    protected $fillable     = ['uuid', 'packageUuid', 'name', 'hasCustomFields', 'hasAttachments'];
     public $with            = ['package'];
 
     public function package()

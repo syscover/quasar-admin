@@ -7,7 +7,6 @@ use Quasar\Core\Exceptions\AuthenticateException;
 use GraphQL\Type\Definition\ResolveInfo;
 use Quasar\Admin\Models\User;
 
-
 class AuthResolver
 {
     public function credentials($root, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)

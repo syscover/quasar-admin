@@ -1,3 +1,46 @@
+input AdminAttachmentInput
+{
+    id: Int
+    uuid: ID
+    langUuid: ID
+    attachableType: String
+    attachableUuid: ID
+    familyUuid: ID
+    sort: Int
+    alt: String
+    title: String
+    pathname: String!
+    filename: String!
+    url: String!
+    mime: String!
+    extension: String!
+    size: Int!
+    width: Int
+    height: Int
+    libraryUuid: ID
+    libraryFilename: String
+    library: AdminAttachmentLibraryInput
+    isUploaded: Boolean
+    isChanged: Boolean
+    data: JSON
+}
+
+input AdminAttachmentLibraryInput
+{
+    id: Int
+    uuid: ID
+    name: String
+    pathname: String
+    filename: String
+    url: String
+    mime: String
+    extension: String
+    size: Int
+    width: Int
+    height: Int
+    data: JSON
+}
+
 input AdminAttachmentFamilyInput 
 {
     id: Int
@@ -17,6 +60,17 @@ input AdminCredentialsInput
     username: String!
     password: String!
     grantType: String!
+}
+
+input AdminCropInput
+{
+    x: Int!
+    y: Int!
+    width: Int!
+    height: Int!
+    rotate: Int!
+    scaleX: Int!
+    scaleY: Int!
 }
 
 input AdminFieldGroupInput 

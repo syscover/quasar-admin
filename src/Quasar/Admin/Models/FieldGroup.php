@@ -10,7 +10,7 @@ use Quasar\Core\Models\CoreModel;
 class FieldGroup extends CoreModel
 {
     protected $table        = 'admin_field_group';
-    protected $fillable     = ['id', 'uuid', 'name', 'resourceUuid'];
+    protected $fillable     = ['uuid', 'name', 'resourceUuid'];
     public $with            = ['resource'];
 
     public function resource()

@@ -14,7 +14,7 @@ class User extends CoreModel
     use HasRelationships;
 
     protected $table        = 'admin_user';
-    protected $fillable     = ['id', 'uuid', 'name', 'surname', 'email', 'langUuid', 'isActive', 'username', 'password'];
+    protected $fillable     = ['uuid', 'name', 'surname', 'email', 'langUuid', 'isActive', 'username', 'password'];
     protected $hidden       = ['password', 'remember_token'];
     protected $casts        = [
         'isActive' => 'boolean'

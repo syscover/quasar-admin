@@ -44,17 +44,17 @@ class AdminCreateTableAttachment extends Migration {
 
                 $table->index('uuid', 'admin_attachment_uuid_idx');
                 
-                $table->foreign('lang_uuid', 'admin_attachment_lang_id_fk')
+                $table->foreign('lang_uuid', 'admin_attachment_lang_uuid_fk')
                     ->references('uuid')
                     ->on('admin_lang')
                     ->onDelete('restrict')
                     ->onUpdate('cascade');
-                $table->foreign('family_uuid', 'admin_attachment_family_id_fk')
+                $table->foreign('family_uuid', 'admin_attachment_family_uuid_fk')
                     ->references('uuid')
                     ->on('admin_attachment_family')
                     ->onDelete('restrict')
                     ->onUpdate('cascade');
-                $table->foreign('library_uuid', 'admin_attachment_library_id_fk')
+                $table->foreign('library_uuid', 'admin_attachment_library_uuid_fk')
                     ->references('uuid')
                     ->on('admin_attachment_library')
                     ->onDelete('set null')

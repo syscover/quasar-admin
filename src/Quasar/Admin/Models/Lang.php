@@ -10,7 +10,7 @@ use Quasar\Core\Models\CoreModel;
 class Lang extends CoreModel
 {
     protected $table        = 'admin_lang';
-    protected $fillable     = ['id', 'uuid', 'name', 'image', 'iso6392', 'iso6393', 'ietf', 'sort', 'isActive'];
+    protected $fillable     = ['uuid', 'name', 'image', 'iso6392', 'iso6393', 'ietf', 'sort', 'isActive'];
     protected $maps         = ['iso_639_2' => 'iso6392', 'iso_639_3' => 'iso6393'];
     protected $casts        = [
         'active' => 'boolean'

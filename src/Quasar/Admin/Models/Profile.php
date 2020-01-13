@@ -10,5 +10,5 @@ use Quasar\Core\Models\CoreModel;
 class Profile extends CoreModel
 {
     protected $table        = 'admin_profile';
-    protected $fillable     = ['id', 'uuid', 'name'];
+    protected $fillable     = ['uuid', 'name'];
 }

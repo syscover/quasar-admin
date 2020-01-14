@@ -42,6 +42,7 @@ class AdminCreateTableCountry extends Migration
                 $table->softDeletes();
 
                 $table->index('uuid', 'admin_country_uuid_idx');
+                $table->index('common_uuid', 'admin_country_common_uuid_idx');
                 $table->index('slug', 'admin_country_slug_idx');
                 $table->unique('iso_3166_alpha_2', 'admin_country_iso_3166_alpha_2_uq');
                 $table->unique('iso_3166_alpha_3', 'admin_country_iso_3166_alpha_3_uq');

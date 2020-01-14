@@ -501,4 +501,51 @@ class AttachmentService
 
         return $attachment;
     }
+
+    /**
+     *  Function to delete all attachments from object.
+     *  This function is called when any object is destroy
+     *
+     * @access	public
+     * @param   string      $attachableUuid
+     * @param   string      $attachableType
+     * @param   string      $langUuid
+     */
+    public static function deleteAttachments($attachableUuid, $attachableType, $langUuid)
+    {
+        $queryBuilder = Attachment::builder()
+            ->where('attachable_uuid', $attachableUuid)
+            ->where('attachable_type', $attachableType);
+
+        if (base_lang_uuid() !== $langUuid) $queryBuilder->where('lang_uuid', $langUuid);
+            
+        // get attachments to delete
+        $attachments = $queryBuilder->get();
+
+        foreach ($attachments as $attachment)
+        {
+            if (base_lang_uuid() === $langUuid)
+            {
+                File::deleteDirectory($attachment->pathname);
+                break;
+            }
+            else
+            {
+                // delete file
+                File::delete($attachment->pathname . '/' .  $attachment->filename);
+
+                // if has sizes, delete your files
+                if (isset($attachment->data['sizes']))
+                {
+                    foreach ($attachment->data['sizes'] as $size)
+                    {
+                        File::delete($size['pathname'] . '/' . $size['filename']);
+                    }
+                }
+            }
+        }
+
+        // delete attachments from database
+        $queryBuilder->delete();
+    }
 }

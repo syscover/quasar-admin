@@ -43,6 +43,7 @@ class AdminCreateTableAttachment extends Migration {
                 $table->softDeletes();
 
                 $table->index('uuid', 'admin_attachment_uuid_idx');
+                $table->index('common_uuid', 'admin_attachment_common_uuid_idx');
                 
                 $table->foreign('lang_uuid', 'admin_attachment_lang_uuid_fk')
                     ->references('uuid')

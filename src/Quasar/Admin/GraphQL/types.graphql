@@ -65,6 +65,35 @@ type AdminCredentials
     refreshToken: String!
 }
 
+type AdminCountry 
+{
+    id: Int!
+    uuid: ID!
+    commonUuid: ID!
+    langUuid: ID!
+    lang: AdminLang
+    iso3166Alpha2: String
+    iso3166Alpha3: String
+    iso3166Numeric: String
+    customCode: String
+    prefix: Int
+    name: String!
+    slug: String!
+    image: String
+    sort: Int
+    administrativeAreaLevel1: String
+    administrativeAreaLevel2: String
+    administrativeAreaLevel3: String
+    # administrativeAreasLevel1: [AdminTerritorialArea1]
+    # administrativeAreasLevel2: [AdminTerritorialArea2]
+    # administrativeAreasLevel3: [AdminTerritorialArea3]
+    administrativeAreas: [String]
+    latitude: Float
+    longitude: Float
+    zoom: Int
+    dataLang: [String!]!
+}
+
 type AdminFieldGroup
 {
     id: Int!

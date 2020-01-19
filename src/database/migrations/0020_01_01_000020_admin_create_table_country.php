@@ -33,10 +33,10 @@ class AdminCreateTableCountry extends Migration
                 $table->string('administrative_area_level_1', 50)->nullable();
                 $table->string('administrative_area_level_2', 50)->nullable();
                 $table->string('administrative_area_level_3', 50)->nullable();
+                $table->json('administrative_areas')->nullable();
                 $table->decimal('latitude', 17, 14)->nullable();
                 $table->decimal('longitude', 17, 14)->nullable();
                 $table->tinyInteger('zoom')->nullable();
-                $table->json('administrative_areas')->nullable();
                 $table->json('data_lang')->nullable();
 
                 $table->timestamps();

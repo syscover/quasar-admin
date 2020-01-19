@@ -62,10 +62,10 @@ class CountryService extends CoreService
             'administrativeAreaLevel1'  => 'nullable|between:1,50',
             'administrativeAreaLevel2'  => 'nullable|between:1,50',
             'administrativeAreaLevel3'  => 'nullable|between:1,50',
+            'administrativeAreas'       => 'nullable|array',
             'latitude'                  => 'nullable|numeric',
             'longitude'                 => 'nullable|numeric',
             'zoom'                      => 'nullable|integer',
-            'administrativeAreas'       => 'nullable|array'
         ]);
 
         $object = null;

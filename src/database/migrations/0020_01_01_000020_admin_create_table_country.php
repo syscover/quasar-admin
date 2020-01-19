@@ -23,7 +23,8 @@ class AdminCreateTableCountry extends Migration
                 $table->uuid('lang_uuid');
                 $table->char('iso_3166_alpha_2', 2);
                 $table->char('iso_3166_alpha_3', 3);
-                $table->char('iso_3166_alpha_numeric', 3);
+                $table->char('iso_3166_numeric', 3);
+                $table->string('custom_code', 10)->nullable(); 
                 $table->string('prefix', 5)->nullable();
                 $table->string('name');
                 $table->string('slug');
@@ -43,6 +44,7 @@ class AdminCreateTableCountry extends Migration
 
                 $table->index('uuid', 'admin_country_uuid_idx');
                 $table->index('common_uuid', 'admin_country_common_uuid_idx');
+                $table->index('custom_code', 'admin_country_custom_code_idx');
                 $table->index('slug', 'admin_country_slug_idx');
                 $table->unique('iso_3166_alpha_2', 'admin_country_iso_3166_alpha_2_uq');
                 $table->unique('iso_3166_alpha_3', 'admin_country_iso_3166_alpha_3_uq');

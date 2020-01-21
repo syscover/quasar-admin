@@ -102,6 +102,42 @@ input AdminCropInput
     scaleY: Int!
 }
 
+input AdminFieldInput
+{
+    id: Int
+    uuid: ID
+    fieldGroupUuid: ID!
+    name: String!
+    labels: [Translation!]!
+    fieldTypeUuid: ID!
+    fieldTypeName: String!
+    dataTypeUuid: ID!
+    dataTypeName: String!
+    required: Boolean!
+    sort: Int
+    maxlength: Int
+    pattern: String
+    class: String
+    values: [AdminFieldValue]
+    dataLang: [String!]!
+    data: JSON
+}
+
+input AdminFieldValueInput
+{
+    id: Int
+    uuid: ID
+    code: String
+    counter: Int
+    langUuid: ID!
+    fieldUuid: ID!
+    name: String!
+    sort: Int
+    featured: Boolean!
+    dataLang: [String!]!
+    data: JSON
+}
+
 input AdminFieldGroupInput 
 {
     id: Int

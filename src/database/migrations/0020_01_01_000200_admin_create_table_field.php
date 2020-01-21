@@ -24,7 +24,6 @@ class AdminCreateTableField extends Migration {
                 $table->json('labels')->nullable();                     // label value in different languages
 
                 $table->uuid('field_type_uuid');                        // see config/quasar-admin.php
-                $table->uuid('source_uuid')->nullable();
                 $table->string('field_type_name');
                 // 1 - Text
                 // 2 - Select
@@ -37,7 +36,7 @@ class AdminCreateTableField extends Migration {
                 // 9 - Text area
                 // 10 - Wysiwyg
 
-                $table->uuid('data_type_id');                               // see config/pulsar-admin.php
+                $table->uuid('data_type_uuid');                         // see config/pulsar-admin.php
                 $table->string('data_type_name');
                 // 1 - String
                 // 2 - Boolean
@@ -48,7 +47,7 @@ class AdminCreateTableField extends Migration {
 
                 $table->boolean('required')->default(false);
                 $table->smallInteger('sort')->unsigned()->nullable();
-                $table->integer('max_length')->unsigned()->nullable();
+                $table->integer('maxlength')->unsigned()->nullable();
                 $table->string('pattern')->nullable();
                 $table->string('class')->nullable();                    // class style for component
                 $table->json('data_lang')->nullable();                  // set different langs in json

@@ -12,10 +12,20 @@ adminCreateLang(payload:AdminLangInput!): AdminLang @field(resolver: "Quasar\\Ad
 adminUpdateLang(payload:AdminLangInput!): AdminLang @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\LangResolver@update")
 adminDeleteLang(uuid:ID!): AdminLang @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\LangResolver@delete")
 
+# Field
+adminCreateField(payload:AdminFieldInput!): AdminField @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldResolver@create")
+adminUpdateField(payload:AdminFieldInput!): AdminField @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldResolver@update")
+adminDeleteField(uuid:ID!): AdminField @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldResolver@delete")
+
 # FieldGroup
 adminCreateFieldGroup(payload:AdminFieldGroupInput!): AdminFieldGroup @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldGroupResolver@create")
 adminUpdateFieldGroup(payload:AdminFieldGroupInput!): AdminFieldGroup @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldGroupResolver@update")
 adminDeleteFieldGroup(uuid:ID!): AdminFieldGroup @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldGroupResolver@delete")
+
+# FieldValue
+adminCreateFieldValue(payload:AdminFieldValueInput!): AdminFieldValue @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldValueResolver@create")
+adminUpdateFieldValue(payload:AdminFieldValueInput!): AdminFieldValue @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldValueResolver@update")
+adminDeleteFieldValue(uuid:ID!): AdminFieldValue @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldValueResolver@delete")
 
 # Package
 adminCreatePackage(payload:AdminPackageInput!): AdminPackage @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\PackageResolver@create")

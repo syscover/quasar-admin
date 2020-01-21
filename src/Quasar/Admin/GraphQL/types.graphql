@@ -94,6 +94,29 @@ type AdminCountry
     dataLang: [String!]!
 }
 
+type AdminField 
+{
+    id: Int!
+    uuid: ID!
+    fieldGroupUuid: ID!
+    name: String!
+    labels: [Translation!]!
+    fieldTypeUuid: ID!
+    fieldTypeName: String!
+    dataTypeUuid: ID!
+    dataTypeName: String!
+    required: Boolean!
+    sort: Int
+    maxlength: Int
+    pattern: String
+    class: String
+    values: [AdminFieldValue]
+    dataLang: [String!]!
+    data: JSON
+    createdAt: DateTime
+    updatedAt: DateTime
+}
+
 type AdminFieldGroup
 {
     id: Int!
@@ -101,6 +124,23 @@ type AdminFieldGroup
     name: String!
     resourceUuid: ID!
     resource: AdminResource!
+    createdAt: DateTime
+    updatedAt: DateTime
+}
+
+type AdminFieldValue
+{
+    id: Int!
+    uuid: ID!
+    code: String!
+    counter: Int
+    langUuid: ID!
+    fieldUuid: ID!
+    name: String!
+    sort: Int
+    featured: Boolean!
+    dataLang: [String!]!
+    data: JSON
     createdAt: DateTime
     updatedAt: DateTime
 }

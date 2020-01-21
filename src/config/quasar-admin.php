@@ -47,4 +47,34 @@ return [
         (object)['uuid' => '3a0d114e-f6ad-4dde-ad79-2525ba1f2db9', 'id' => 2,   'value' => 50,      'name' => '-50%'],
         (object)['uuid' => '5d0ee94f-c1c9-41a7-af13-f9198ec18441', 'id' => 3,   'value' => 75,      'name' => '-75%'],
     ],
+
+    //******************************************************************************************************************
+    //***   Type fields to select on fields section
+    //******************************************************************************************************************
+    'field_types' => [
+        (object)['uuid' => 'c0841223-fc7f-462f-b1ba-d2966c5829e6', 'id' => 1,       'name' => 'Checkbox',               'values' => false],
+        (object)['uuid' => '39bcd945-e7b8-442c-9d74-3c5ca6d561a2', 'id' => 2,       'name' => 'Email',                  'values' => false],
+        (object)['uuid' => '1369a381-1bd0-4e6e-a995-f6bb21b45bb7', 'id' => 3,       'name' => 'Model',                  'values' => false],
+        (object)['uuid' => '0c39cd02-a1cd-48e2-a4a9-232ccb84d268', 'id' => 4,       'name' => 'Number',                 'values' => false],
+        (object)['uuid' => '76448f64-c6c6-47fb-9306-2dc568dd5ab4', 'id' => 5,       'name' => 'Select',                 'values' => true],
+        (object)['uuid' => '62ccb49e-e3d5-4fcf-96e5-3a88768150b0', 'id' => 6,       'name' => 'Select multiple',        'values' => true],
+        (object)['uuid' => '2794afa7-b636-410b-9c7a-e1709e26dfaa', 'id' => 7,       'name' => 'Text',                   'values' => false],
+        (object)['uuid' => '15eb7b5f-1124-4fa6-9617-dc00e0f5df7a', 'id' => 8,       'name' => 'Text Area',              'values' => false],
+        (object)['uuid' => '734717f5-e3de-413f-973d-52a740f5bb27', 'id' => 9,       'name' => 'Wysiwyg',                'values' => false],
+        (object)['uuid' => '3c88c7ea-12e1-4fc5-a52f-2e11de0864a8', 'id' => 10,      'name' => 'Date',                   'values' => false],
+        (object)['uuid' => 'e525d854-73fb-4697-afd8-f0d4f53beb27', 'id' => 11,      'name' => 'Datetime',               'values' => false],
+        (object)['uuid' => '0659ebe7-e6ac-41fb-87ec-f35c7195969e', 'id' => 12,      'name' => 'Header',                 'values' => false],
+    ],
+
+    //******************************************************************************************************************
+    //***   Type data to select on fields section
+    //******************************************************************************************************************
+    'data_types' => [
+        (object)['uuid' => '5504d873-39de-4a75-940e-b35c172dbe6f', 'id' => 1,      'name' => 'String',            'type' => 'string'],
+        (object)['uuid' => '09820254-7004-4858-8d3e-21d2e3a701a5', 'id' => 2,      'name' => 'Boolean',           'type' => 'boolean'],
+        (object)['uuid' => 'f4155d66-d405-4b0e-8be8-f77ed168f7ae', 'id' => 3,      'name' => 'Integer',           'type' => 'integer'],
+        (object)['uuid' => '608b69db-b8df-48c7-9a37-2add3827104e', 'id' => 4,      'name' => 'Float',             'type' => 'float'],
+        (object)['uuid' => '280533f9-0e35-482b-80bc-1a075af21be6', 'id' => 5,      'name' => 'Array',             'type' => 'array'],
+        (object)['uuid' => 'f613c4f2-a5e5-4966-a80d-7edf6723cba5', 'id' => 6,      'name' => 'Object',            'type' => 'object'],
+    ],
 ];

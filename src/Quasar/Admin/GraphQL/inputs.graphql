@@ -88,7 +88,7 @@ input AdminCountryInput
     latitude: Float
     longitude: Float
     zoom: Int
-    dataLang: [String!]!
+    dataLang: [String]
 }
 
 input AdminCropInput
@@ -106,20 +106,19 @@ input AdminFieldInput
 {
     id: Int
     uuid: ID
+    langUuid: ID!
     fieldGroupUuid: ID!
     name: String!
-    labels: [Translation!]!
+    label: String!
     fieldTypeUuid: ID!
-    fieldTypeName: String!
     dataTypeUuid: ID!
-    dataTypeName: String!
-    required: Boolean!
+    isRequired: Boolean!
     sort: Int
     maxlength: Int
     pattern: String
     class: String
     values: [AdminFieldValue]
-    dataLang: [String!]!
+    dataLang: [String]
     data: JSON
 }
 

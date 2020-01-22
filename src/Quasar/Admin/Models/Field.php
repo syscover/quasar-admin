@@ -10,11 +10,12 @@ use Quasar\Core\Models\CoreModel;
 class Field extends CoreModel
 {
     protected $table        = 'admin_field';
-    protected $fillable     = ['uuid', 'fieldGroupUuid', 'name', 'labels', 'fieldTypeUuid', 'sourceUuid', 'fieldTypeName', 'dataTypeUuid', 'dataTypeName', 'required', 'sort', 'maxlength', 'pattern', 'class', 'dataLang', 'data'];
+    protected $fillable     = ['uuid', 'fieldGroupUuid', 'name', 'labels', 'fieldTypeUuid', 'sourceUuid', 'fieldTypeName', 'dataTypeUuid', 'dataTypeName', 'isRequired', 'sort', 'maxlength', 'pattern', 'class', 'dataLang', 'data'];
     protected $casts        = [
-        'labels'    => 'array',
-        'dataLang'  => 'array',
-        'data'      => 'array'
+        'labels'        => 'array',
+        'is_required'   => 'boolean',
+        'data_lang'     => 'array',
+        'data'          => 'array'
     ];
     public $with            = ['values'];
 

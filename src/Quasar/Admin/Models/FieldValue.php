@@ -16,7 +16,7 @@ class FieldValue extends CoreModel
     protected $fillable     = ['uuid', 'code', 'counter', 'langUuid', 'fieldUuid', 'name', 'sort', 'featured', 'dataLang', 'data'];
     protected $casts        = [
         'featured'  => 'boolean',
-        'dataLang'  => 'array',
+        'data_lang' => 'array',
         'data'      => 'array'
     ];
     public $with            = ['lang'];

@@ -1,5 +1,6 @@
 <?php namespace Quasar\Admin\Services;
 
+use Illuminate\Support\Facades\DB;
 use Quasar\Core\Services\CoreService;
 use Quasar\Admin\Models\FieldValue;
 
@@ -25,7 +26,7 @@ class FieldValueService extends CoreService
             $object = FieldValue::create($data)->fresh();
 
             // add data lang for element
-            $object->addDataLang($object);
+            $object->addDataLang();
         });
         
         return $object;

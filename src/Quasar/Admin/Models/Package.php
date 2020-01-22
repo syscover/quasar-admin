@@ -12,6 +12,6 @@ class Package extends CoreModel
 	protected $table        = 'admin_package';
     protected $fillable     = ['uuid', 'name', 'root', 'sort', 'isActive'];
     protected $casts        = [
-        'isActive' => 'boolean'
+        'is_active' => 'boolean'
     ];
 }

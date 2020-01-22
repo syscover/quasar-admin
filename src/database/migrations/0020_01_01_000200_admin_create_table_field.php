@@ -22,7 +22,7 @@ class AdminCreateTableField extends Migration {
                 $table->uuid('field_group_uuid');
                 $table->string('name')->nullable();
                 $table->json('labels')->nullable();                     // label value in different languages
-
+                $table->uuid('source_uuid')->nullable();                // data source from other models
                 $table->uuid('field_type_uuid');                        // see config/quasar-admin.php
                 $table->string('field_type_name');
                 // 1 - Text
@@ -45,7 +45,7 @@ class AdminCreateTableField extends Migration {
                 // 5 - Array
                 // 6 - Object
 
-                $table->boolean('required')->default(false);
+                $table->boolean('is_required')->default(false);
                 $table->smallInteger('sort')->unsigned()->nullable();
                 $table->integer('maxlength')->unsigned()->nullable();
                 $table->string('pattern')->nullable();

@@ -1,5 +1,6 @@
 <?php namespace Quasar\Admin\Services;
 
+use Illuminate\Support\Facades\DB;
 use Quasar\Core\Services\CoreService;
 use Quasar\Admin\Models\Country;
 
@@ -38,7 +39,7 @@ class CountryService extends CoreService
             $object = Country::create($data)->fresh();
 
             // add data lang for element
-            $object->addDataLang($object);
+            $object->addDataLang();
         });
 
         return $object;

@@ -17,7 +17,7 @@ class User extends CoreModel
     protected $fillable     = ['uuid', 'name', 'surname', 'email', 'langUuid', 'isActive', 'username', 'password'];
     protected $hidden       = ['password', 'remember_token'];
     protected $casts        = [
-        'isActive' => 'boolean'
+        'is_active' => 'boolean'
     ];
     public $with            = ['lang', 'profiles'];
 

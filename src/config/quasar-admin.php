@@ -77,4 +77,130 @@ return [
         (object)['uuid' => '280533f9-0e35-482b-80bc-1a075af21be6', 'id' => 5,      'name' => 'Array',             'type' => 'array'],
         (object)['uuid' => 'f613c4f2-a5e5-4966-a80d-7edf6723cba5', 'id' => 6,      'name' => 'Object',            'type' => 'object'],
     ],
+
+    //******************************************************************************************************************
+    //***   Resources that could contain reports
+    //******************************************************************************************************************
+    'field_sources' => [
+        /* (object)[
+            'id'                => 1,    
+            'name'              => 'admin::pulsar.countries',                 
+            'translateable'     => true,        
+            'type'              => 'database',   
+            'model'             => 'Syscover\Admin\Models\Country',         
+            'package'           => 1,
+            'option_id'         => 'id',
+            'option_name'       => 'name'
+        ],
+        (object)[
+            'id'                => 2,    
+            'name'              => 'admin::pulsar.profiles',                 
+            'translateable'     => true,        
+            'type'              => 'database',   
+            'model'             => 'Syscover\Admin\Models\Profile',         
+            'package'           => 1,
+            'option_id'         => 'id',
+            'option_name'       => 'name'
+        ],
+        (object)[
+            'id'                => 3,    
+            'name'              => 'forem::pulsar.unemployed_situations',
+            'translateable'     => false,       
+            'type'              => 'config',     
+            'model'             => 'pulsar-forem.unemployed_situations',                                      
+            'package'           => 500,
+            'option_id'         => 'id',
+            'option_name'       => 'name'
+        ],
+        (object)[
+            'id'                => 4,    
+            'name'              => 'forem::pulsar.expedient',
+            'translateable'     => false,       
+            'type'              => 'database',     
+            'model'             => 'Syscover\Forem\Models\Expedient',                                      
+            'package'           => 500,
+            'option_id'         => 'id',
+            'option_name'       => 'name'
+        ],
+        (object)[
+            'id'                => 5,    
+            'name'              => 'forem::pulsar.action',
+            'translateable'     => false,       
+            'type'              => 'database',     
+            'model'             => 'Syscover\Forem\Models\Action',                                      
+            'package'           => 500,
+            'option_id'         => 'id',
+            'option_name'       => 'name'
+        ],
+        (object)[
+            'id'                => 6,    
+            'name'              => 'forem::pulsar.group',
+            'translateable'     => false,       
+            'type'              => 'database',     
+            'model'             => 'Syscover\Forem\Models\Group',                                      
+            'package'           => 500,
+            'option_id'         => 'id',
+            'option_name'       => 'name'
+        ],
+        (object)[
+            'id'                => 7,    
+            'name'              => 'forem::pulsar.employment_office',
+            'translateable'     => false,       
+            'type'              => 'database',     
+            'model'             => 'Syscover\Forem\Models\EmploymentOffice',                                      
+            'package'           => 500,
+            'option_id'         => 'id',
+            'option_name'       => 'name'
+        ],
+        (object)[
+            'id'                => 8,    
+            'name'              => 'forem::pulsar.province',
+            'translateable'     => false,       
+            'type'              => 'database',     
+            'model'             => 'Syscover\Forem\Models\Province',                                      
+            'package'           => 500,
+            'option_id'         => 'id',
+            'option_name'       => 'name'
+        ],
+        (object)[
+            'id'                => 9,    
+            'name'              => 'forem::pulsar.availabilities',
+            'translateable'     => false,       
+            'type'              => 'config',     
+            'model'             => 'pulsar-forem.availabilities',                                      
+            'package'           => 500,
+            'option_id'         => 'id',
+            'option_name'       => 'name'
+        ],
+        (object)[
+            'id'                => 10,    
+            'name'              => 'forem::pulsar.academic_levels',
+            'translateable'     => false,       
+            'type'              => 'config',     
+            'model'             => 'pulsar-forem.academic_levels',                                      
+            'package'           => 500,
+            'option_id'         => 'id',
+            'option_name'       => 'name'
+        ],
+        (object)[
+            'id'                => 11,    
+            'name'              => 'forem::pulsar.teacher_profiles',
+            'translateable'     => false,       
+            'type'              => 'config',     
+            'model'             => 'pulsar-forem.profiles',                                      
+            'package'           => 500,
+            'option_id'         => 'id',
+            'option_name'       => 'name'
+        ],
+        (object)[
+            'id'                => 12,    
+            'name'              => 'forem::pulsar.category',
+            'translateable'     => false,       
+            'type'              => 'database',     
+            'model'             => 'Syscover\Forem\Models\Category',                                      
+            'package'           => 500,
+            'option_id'         => 'id',
+            'option_name'       => 'name'
+        ], */
+    ],
 ];

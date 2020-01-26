@@ -4,7 +4,6 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\ImageManagerStatic as Image;
 use Quasar\Core\Support\Image as ImageHelper;
-use Quasar\Core\Services\ImageService;
 use Quasar\Admin\Models\AttachmentLibrary;
 use Quasar\Admin\Models\Attachment;
 use function GuzzleHttp\Psr7\mimetype_from_extension;
@@ -51,7 +50,7 @@ class AttachmentService
                 $image = Image::make(storage_path('app/public/tmp/' . $file->hashName()));
 
                 // check orientation to avoid error from mobile photo
-                $image = ImageService::checkOrientation($image);
+                $image = ImageHelper::checkOrientation($image);
 
                 // set image properties
                 $attachment['width']    = $image->width();

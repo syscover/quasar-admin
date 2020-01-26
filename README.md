@@ -1,4 +1,4 @@
-# Quasar Core App for Laravel
+# Quasar Admin App for Laravel
 
 [![Total Downloads](https://poser.pugx.org/quasar/admin/downloads)](https://packagist.org/packages/quasar/admin)
 [![Latest Stable Version](http://img.shields.io/github/release/syscover/quasar-admin.svg)](https://packagist.org/packages/quasar/admin)
@@ -39,6 +39,7 @@ ADMIN_BASE_LANG=en
 ```
 ...
 'failed' => [
+    'driver' => env('QUEUE_FAILED_DRIVER', 'database'),
     'database' => env('DB_CONNECTION', 'mysql'),
     'table' => 'admin_failed_jobs',
 ],

@@ -48,7 +48,7 @@ class AdminCreateTableCountry extends Migration
                 $table->index('slug', 'admin_country_slug_idx');
                 $table->unique('iso_3166_alpha_2', 'admin_country_iso_3166_alpha_2_uq');
                 $table->unique('iso_3166_alpha_3', 'admin_country_iso_3166_alpha_3_uq');
-                $table->unique('iso_3166_alpha_numeric', 'admin_country_iso_3166_alpha_numeric_uq');
+                $table->unique('iso_3166_numeric', 'admin_country_iso_3166_numeric_uq');
 
                 $table->foreign('lang_uuid', 'admin_country_lang_uuid_fk')
                     ->references('uuid')

@@ -68,7 +68,7 @@ input AdminCountryInput
     uuid: ID
     commonUuid: ID
     langUuid: ID!
-    lang: AdminLang
+    lang: AdminLangInput
     iso3166Alpha2: String
     iso3166Alpha3: String
     iso3166Numeric: String
@@ -81,9 +81,9 @@ input AdminCountryInput
     administrativeAreaLevel1: String
     administrativeAreaLevel2: String
     administrativeAreaLevel3: String
-    # administrativeAreasLevel1: [AdminTerritorialArea1]
-    # administrativeAreasLevel2: [AdminTerritorialArea2]
-    # administrativeAreasLevel3: [AdminTerritorialArea3]
+    # administrativeAreasLevel1: [AdminTerritorialArea1Input]
+    # administrativeAreasLevel2: [AdminTerritorialArea2Input]
+    # administrativeAreasLevel3: [AdminTerritorialArea3Input]
     administrativeAreas: [String]
     latitude: Float
     longitude: Float
@@ -117,7 +117,7 @@ input AdminFieldInput
     maxlength: Int
     pattern: String
     class: String
-    values: [AdminFieldValue]
+    values: [AdminFieldValueInput]
     dataLang: [String]
     data: JSON
 }

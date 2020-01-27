@@ -55,44 +55,16 @@ QUEUE_CONNECTION=database
 composer dump-autoload
 php artisan queue:table
 php artisan migrate
-php artisan db:seed --class="AdminTableSeeder"
+php artisan db:seed --class="AdminSeeder"
 ```
 
-**6 - Add graphQL routes in graphql/schema.graphql file**
-```
-# Core
-#import ./../vendor/syscover/pulsar-core/src/Syscover/Core/GraphQL/scalars.graphql
-#import ./../vendor/syscover/pulsar-core/src/Syscover/Core/GraphQL/inputs.graphql
-#import ./../vendor/syscover/pulsar-core/src/Syscover/Core/GraphQL/types.graphql
-
-# Admin types
-#import ./../vendor/syscover/pulsar-admin/src/Syscover/Admin/GraphQL/inputs.graphql
-#import ./../vendor/syscover/pulsar-admin/src/Syscover/Admin/GraphQL/types.graphql
-
-type Query {
-    # Core
-    #import ./../vendor/syscover/pulsar-core/src/Syscover/Core/GraphQL/queries.graphql
-    
-    # Admin queries
-    #import ./../vendor/syscover/pulsar-admin/src/Syscover/Admin/GraphQL/queries.graphql
-}
-
-type Mutation {
-    # Core
-    #import ./../vendor/syscover/pulsar-core/src/Syscover/Core/GraphQL/mutations.graphql
-    
-    # Admin mutations
-    #import ./../vendor/syscover/pulsar-admin/src/Syscover/Admin/GraphQL/mutations.graphql
-}
-```
-
-**7 - You can access these data**
+**6 - You can access these data**
 ```
 user: john@gmail.com
 pasword: 1111
 ```
 
-**8 - To run unit testing**
+**7 - To run unit testing**
 ```
 ./vendor/bin/phpunit
 ```

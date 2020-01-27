@@ -32,6 +32,8 @@ class AdminCreateTableAttachmentLibrary extends Migration {
 
                 $table->timestamps();
                 $table->softDeletes();
+
+                $table->index('uuid', 'admin_attachment_library_uuid_idx');
             });
         }
     }

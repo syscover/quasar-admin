@@ -68,3 +68,10 @@ pasword: 1111
 ```
 ./vendor/bin/phpunit
 ```
+
+## Tips
+**1 - You can use a playground graphQL in this URL**
+```
+http://your-domain/graphql-playground
+```
+replace "your-domain" for domain where laravel in installed

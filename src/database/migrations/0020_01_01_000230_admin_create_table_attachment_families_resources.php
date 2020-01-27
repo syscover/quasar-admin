@@ -20,7 +20,7 @@ class AdminCreateTableAttachmentFamiliesResources extends Migration
                 $table->uuid('attachment_family_uuid');
                 $table->uuid('resource_uuid');
 
-                $table->primary(['attachment_family_uuid', 'resource_uuid']);
+                $table->primary(['attachment_family_uuid', 'resource_uuid'], 'admin_attachment_families_resources_pk');
                 // 'admin_attachment_families_resources_attachment_family_uuid_resource_uuid_primary' is too long
                 $table->foreign('attachment_family_uuid', 'admin_attachment_families_resources_attachment_family_uui_fk')
                     ->references('uuid')

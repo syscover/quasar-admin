@@ -70,8 +70,8 @@ pasword: 1111
 ```
 
 ## Tips
-**1 - You can use a playground graphQL in this URL**
+**1 - You can use a graphQL playground in this URL**
 ```
 http://your-domain/graphql-playground
 ```
-replace "your-domain" for domain where laravel in installed
+replace "your-domain" for domain where laravel is installed

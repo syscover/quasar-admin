@@ -24,6 +24,7 @@ class AdminPermissionSeeder extends Seeder
             ['uuid' => '9a37e368-b418-4d62-ad60-3b0110e4635f',  'name' => 'admin.package.access',                       'package_uuid' => '9e8dbba3-b82b-406f-b71f-060a0494ffba'],
             ['uuid' => '9bc6e1c0-9c1e-448f-8ae2-e1d36f11252d',  'name' => 'admin.lang.access',                          'package_uuid' => '9e8dbba3-b82b-406f-b71f-060a0494ffba'],
             ['uuid' => '096ac555-09a8-4603-b082-5e1e1ad51db1',  'name' => 'admin.profile.access',                       'package_uuid' => '9e8dbba3-b82b-406f-b71f-060a0494ffba'],
+            ['uuid' => '18be5b5e-227b-4ac0-92a9-182f2f2645a9',  'name' => 'admin.country.access',                       'package_uuid' => '9e8dbba3-b82b-406f-b71f-060a0494ffba'],
             ['uuid' => 'c3f07181-ef34-4905-94fc-8c8af191153c',  'name' => 'admin.permission.access',                    'package_uuid' => '9e8dbba3-b82b-406f-b71f-060a0494ffba'],
             ['uuid' => '51d0ea94-2138-45b1-91ca-c150c8cdea48',  'name' => 'admin.permission.role.access',               'package_uuid' => '9e8dbba3-b82b-406f-b71f-060a0494ffba'],
             ['uuid' => '1d7d1492-ed1c-477d-bce7-1f4106cc929e',  'name' => 'admin.permission.permission.access',         'package_uuid' => '9e8dbba3-b82b-406f-b71f-060a0494ffba'],

@@ -8,6 +8,11 @@ adminCredentials(credentials: AdminCredentialsInput!): AdminCredentials! @field(
 adminMe: AdminUser @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AuthResolver@me")
 adminMePermissions: [AdminPermission] @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AuthResolver@permissions")
 
+# Country
+adminCountry(query:[QueryStatementInput]): AdminCountry @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\CountryResolver@find")
+adminCountries(query:[QueryStatementInput]): [AdminCountry!]! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\CountryResolver@get")
+adminCountriesPagination(query:[QueryStatementInput]): Pagination! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\CountryResolver@paginate")
+
 # Field
 adminField(query:[QueryStatementInput]): AdminField @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldResolver@find")
 adminFields(query:[QueryStatementInput]): [AdminField!]! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldResolver@get")

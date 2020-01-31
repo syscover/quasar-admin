@@ -1,6 +1,7 @@
 <?php namespace Quasar\Admin\Services;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use Quasar\Core\Services\CoreService;
 use Quasar\Admin\Models\Country;
 

@@ -10,6 +10,7 @@ class AdminSeeder extends Seeder
         Model::unguard();
 
         $this->call(AdminLangSeeder::class);
+        $this->call(AdminCountrySeeder::class);
         $this->call(AdminPackageSeeder::class);
         $this->call(AdminPermissionSeeder::class);
         $this->call(AdminResourceSeeder::class);

@@ -30,8 +30,8 @@ class CountryService extends CoreService
             'administrativeAreas'       => 'nullable|array'
         ]);
 
-        // create commonUuid
-        $data['commonUuid'] = Str::uuid();
+        // create commonUuid if not exist
+        $data['commonUuid'] = $data['commonUuid'] ?? Str::uuid();
         $object = null;
 
         DB::transaction(function () use ($data, &$object)

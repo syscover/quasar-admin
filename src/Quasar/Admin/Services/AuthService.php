@@ -23,6 +23,7 @@ class AuthService
     {
         // get current time
         $date = Carbon::now();
+        // key to encrypt tokens
         $key = '123456';
 
         $payload = [ 

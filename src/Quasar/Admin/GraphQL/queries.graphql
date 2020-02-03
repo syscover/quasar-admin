@@ -11,7 +11,7 @@ adminMePermissions: [AdminPermission] @field(resolver: "Quasar\\Admin\\GraphQL\\
 # Country
 adminCountry(query:[QueryStatementInput]): AdminCountry @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\CountryResolver@find")
 adminCountries(query:[QueryStatementInput]): [AdminCountry!]! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\CountryResolver@get")
-adminCountriesPagination(query:[QueryStatementInput]): Pagination! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\CountryResolver@paginate")
+adminCountriesPagination(query:[QueryStatementInput] constraints:[QueryStatementInput]): Pagination! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\CountryResolver@paginate")
 
 # Field
 adminField(query:[QueryStatementInput]): AdminField @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldResolver@find")

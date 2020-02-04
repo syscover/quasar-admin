@@ -68,7 +68,6 @@ input AdminCountryInput
     uuid: ID
     commonUuid: ID
     langUuid: ID!
-    lang: AdminLangInput
     iso3166Alpha2: String
     iso3166Alpha3: String
     iso3166Numeric: String

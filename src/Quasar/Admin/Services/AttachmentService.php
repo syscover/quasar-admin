@@ -10,11 +10,11 @@ use function GuzzleHttp\Psr7\mimetype_from_extension;
 
 class AttachmentService
 {
-    const FIT_CROP = 'c7402ae0-84f2-4fd2-bc80-871a3c2fab38';
-    const WIDTH = '609b5b79-f5cb-45cb-ba08-1c2220b54b91';
-    const HEIGHT = '7a1d9ebf-db57-4e3b-89d1-3feef931e75b';
-    const WIDTH_FREE_CROP = 'ca2f4e27-8b74-4543-b2a8-c8fa6fda3fa4';
-    const HEIGHT_FREE_CROP = '066bdff2-0ea4-497c-893b-7e13a60f21d1';
+    const FIT_CROP          = 'c7402ae0-84f2-4fd2-bc80-871a3c2fab38';
+    const WIDTH             = '609b5b79-f5cb-45cb-ba08-1c2220b54b91';
+    const HEIGHT            = '7a1d9ebf-db57-4e3b-89d1-3feef931e75b';
+    const WIDTH_FREE_CROP   = 'ca2f4e27-8b74-4543-b2a8-c8fa6fda3fa4';
+    const HEIGHT_FREE_CROP  = '066bdff2-0ea4-497c-893b-7e13a60f21d1';
 
     public static function storeAttachmentsLibraryTmp($files)
     {
@@ -150,7 +150,7 @@ class AttachmentService
 
     public static function updateAttachments($attachments, $directory, $baseUrl, $attachableType, $attachableUuid, $langUuid)
     {
-        // store attachments library
+        // store attachments library that are uploaded
         $attachments = self::storeAttachmentsLibrary($attachments);
         
         self::manageAttachments($attachments, $directory, $baseUrl, $attachableType, $attachableUuid, $langUuid, 'update');
@@ -254,26 +254,14 @@ class AttachmentService
                 {
                     $hashName = ImageHelper::getHashName($attachment['extension']);
 
-                    // copy attachment
-                    if ($action === 'clone')
-                    {
-                        File::copy($attachment['pathname'] . '/' . $attachment['filename'], base_path($directory . '/' . $attachableUuid . '/' . $hashName));
-                        
-                        // set new pathname
-                        $attachment['pathname'] = base_path($directory . '/' . $attachableUuid);
-
-                        // create new common uuid to attachment cloned
-                        $attachment['commonUuid'] = Str::uuid();
-                    }
-                    else
-                    {
-                        // move file from temp file to attachment directory
-                        File::copy($attachment['pathname'] . '/' . $attachment['filename'], $attachment['pathname'] . '/' . $hashName);
-                    }
+                    File::copy($attachment['pathname'] . '/' . $attachment['filename'], base_path($directory . '/' . $attachableUuid . '/' . $hashName));
+                    
+                    // set new pathname
+                    $attachment['pathname'] = base_path($directory . '/' . $attachableUuid);
 
                     // store new lang attachment that previous exist in database
                     $attachmentObject = Attachment::create([
-                        'commonUuid'            => $attachment['commonUuid'],
+                        'commonUuid'            => $attachment['commonUuid'] ?? Str::uuid(),
                         'langUuid'              => $langUuid,
                         'attachableUuid'        => $attachableUuid,
                         'attachableType'        => $attachableType,
@@ -502,45 +490,28 @@ class AttachmentService
     }
 
     /**
-     *  Function to delete all attachments from object.
+     *  Function to delete all attachments from objects.
      *  This function is called when any object is destroy
      *
      * @access	public
      * @param   string      $attachableUuid
-     * @param   string      $attachableType
-     * @param   string      $langUuid
      */
-    public static function deleteAttachments($attachableUuid, $attachableType, $langUuid)
+    public static function deleteAttachments($attachableUuids)
     {
         $queryBuilder = Attachment::builder()
-            ->where('attachable_uuid', $attachableUuid)
-            ->where('attachable_type', $attachableType);
-
-        if (base_lang_uuid() !== $langUuid) $queryBuilder->where('lang_uuid', $langUuid);
+            ->whereIn('attachable_uuid', $attachableUuids);
             
         // get attachments to delete
         $attachments = $queryBuilder->get();
 
+        // delete directories of attachments
+        $pathname = null;
         foreach ($attachments as $attachment)
         {
-            if (base_lang_uuid() === $langUuid)
+            if ($attachment->pathname !== $pathname)
             {
                 File::deleteDirectory($attachment->pathname);
-                break;
-            }
-            else
-            {
-                // delete file
-                File::delete($attachment->pathname . '/' .  $attachment->filename);
-
-                // if has sizes, delete your files
-                if (isset($attachment->data['sizes']))
-                {
-                    foreach ($attachment->data['sizes'] as $size)
-                    {
-                        File::delete($size['pathname'] . '/' . $size['filename']);
-                    }
-                }
+                $pathname = $attachment->pathname;
             }
         }
 

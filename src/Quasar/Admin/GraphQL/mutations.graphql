@@ -5,59 +5,59 @@ adminDeleteAttachment(attachment:AdminAttachmentInput!): JSON @field(resolver: "
 # AttachmentFamily
 adminCreateAttachmentFamily(payload:AdminAttachmentFamilyInput!): AdminAttachmentFamily @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AttachmentFamilyResolver@create")
 adminUpdateAttachmentFamily(payload:AdminAttachmentFamilyInput!): AdminAttachmentFamily @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AttachmentFamilyResolver@update")
-adminDeleteAttachmentFamily(uuid:ID!): AdminAttachmentFamily @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AttachmentFamilyResolver@delete")
+adminDeleteAttachmentFamily(uuid:ID!): [AdminAttachmentFamily] @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AttachmentFamilyResolver@delete")
 
 # Country
 adminCreateCountry(payload:AdminCountryInput!): AdminCountry @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\CountryResolver@create")
 adminUpdateCountry(payload:AdminCountryInput!): AdminCountry @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\CountryResolver@update")
-adminDeleteCountry(uuid:ID!): AdminCountry @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\CountryResolver@delete")
+adminDeleteCountry(uuid:ID!): [AdminCountry] @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\CountryResolver@delete")
 
 # Field
 adminCreateField(payload:AdminFieldInput!): AdminField @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldResolver@create")
 adminUpdateField(payload:AdminFieldInput!): AdminField @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldResolver@update")
-adminDeleteField(uuid:ID!): AdminField @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldResolver@delete")
+adminDeleteField(uuid:ID!): [AdminField] @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldResolver@delete")
 
 # FieldGroup
 adminCreateFieldGroup(payload:AdminFieldGroupInput!): AdminFieldGroup @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldGroupResolver@create")
 adminUpdateFieldGroup(payload:AdminFieldGroupInput!): AdminFieldGroup @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldGroupResolver@update")
-adminDeleteFieldGroup(uuid:ID!): AdminFieldGroup @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldGroupResolver@delete")
+adminDeleteFieldGroup(uuid:ID!): [AdminFieldGroup] @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldGroupResolver@delete")
 
 # FieldValue
 adminCreateFieldValue(payload:AdminFieldValueInput!): AdminFieldValue @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldValueResolver@create")
 adminUpdateFieldValue(payload:AdminFieldValueInput!): AdminFieldValue @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldValueResolver@update")
-adminDeleteFieldValue(uuid:ID!): AdminFieldValue @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldValueResolver@delete")
+adminDeleteFieldValue(uuid:ID!): [AdminFieldValue] @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldValueResolver@delete")
 
 # Lang
 adminCreateLang(payload:AdminLangInput!): AdminLang @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\LangResolver@create")
 adminUpdateLang(payload:AdminLangInput!): AdminLang @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\LangResolver@update")
-adminDeleteLang(uuid:ID!): AdminLang @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\LangResolver@delete")
+adminDeleteLang(uuid:ID!): [AdminLang] @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\LangResolver@delete")
 
 # Package
 adminCreatePackage(payload:AdminPackageInput!): AdminPackage @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\PackageResolver@create")
 adminUpdatePackage(payload:AdminPackageInput!): AdminPackage @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\PackageResolver@update")
-adminDeletePackage(uuid:ID!): AdminPackage @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\PackageResolver@delete")
+adminDeletePackage(uuid:ID!): [AdminPackage] @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\PackageResolver@delete")
 
 # Permission
 adminCreatePermission(payload:AdminPermissionInput!): AdminPermission @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\PermissionResolver@create")
 adminUpdatePermission(payload:AdminPermissionInput!): AdminPermission @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\PermissionResolver@update")
-adminDeletePermission(uuid:ID!): AdminPermission @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\PermissionResolver@delete")
+adminDeletePermission(uuid:ID!): [AdminPermission] @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\PermissionResolver@delete")
 
 # Profile
 adminCreateProfile(payload:AdminProfileInput!): AdminProfile @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\ProfileResolver@create")
 adminUpdateProfile(payload:AdminProfileInput!): AdminProfile @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\ProfileResolver@update")
-adminDeleteProfile(uuid:ID!): AdminProfile @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\ProfileResolver@delete")
+adminDeleteProfile(uuid:ID!): [AdminProfile] @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\ProfileResolver@delete")
 
 # Resource
 adminCreateResource(payload:AdminResourceInput!): AdminResource @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\ResourceResolver@create")
 adminUpdateResource(payload:AdminResourceInput!): AdminResource @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\ResourceResolver@update")
-adminDeleteResource(uuid:ID!): AdminResource @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\ResourceResolver@delete")
+adminDeleteResource(uuid:ID!): [AdminResource] @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\ResourceResolver@delete")
 
 # Role
 adminCreateRole(payload:AdminRoleInput!): AdminRole @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\RoleResolver@create")
 adminUpdateRole(payload:AdminRoleInput!): AdminRole @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\RoleResolver@update")
-adminDeleteRole(uuid:ID!): AdminRole @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\RoleResolver@delete")
+adminDeleteRole(uuid:ID!): [AdminRole] @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\RoleResolver@delete")
 
 # User
 adminCreateUser(payload:AdminUserInput!): AdminUser @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\UserResolver@create")
 adminUpdateUser(payload:AdminUserInput!): AdminUser @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\UserResolver@update")
-adminDeleteUser(uuid:ID!): AdminUser @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\UserResolver@delete")
+adminDeleteUser(uuid:ID!): [AdminUser] @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\UserResolver@delete")

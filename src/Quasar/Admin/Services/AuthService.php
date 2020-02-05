@@ -32,7 +32,7 @@ class AuthService
             'iss'       => 'Quasar',
             'iat'       => $date->format('U'),
             'nbf'       => $date->format('U'),
-            'exp'       => $date->addSeconds(5)->format('U')
+            'exp'       => $date->addSeconds(3000)->format('U')
         ];
 
         $refreshTokenPayload = [ 

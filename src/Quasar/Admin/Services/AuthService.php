@@ -23,30 +23,32 @@ class AuthService
     {
         // get current time
         $date = Carbon::now();
-        // key to encrypt tokens
-        $key = '123456';
 
-        $payload = [ 
+        $accessTokenPayload = [ 
             'username'  => $user->username,
             'name'      => $user->name,
             'email'     => $user->email,
             'lang'      => $user->lang,
-            'iat'       => $date->format('X'),
-            'nbf'       => $date->addSeconds(3000)->format('X')
+            'iss'       => 'Quasar',
+            'iat'       => $date->format('U'),
+            'nbf'       => $date->format('U'),
+            'exp'       => $date->addSeconds(5)->format('U')
         ];
 
-        $payload2 = [ 
+        $refreshTokenPayload = [ 
             'username'  => $user->username,
             'name'      => $user->name,
             'email'     => $user->email,
             'lang'      => $user->lang,
-            'iat'       => $date->format('X'),
-            'nbf'       => $date->addSeconds(6000)->format('X')
+            'iss'       => 'Quasar',
+            'iat'       => $date->format('U'),
+            'nbf'       => $date->format('U'),
+            'exp'       => $date->addSeconds(6000)->format('U')
         ];
 
         return [
-            'accessToken'   => JWT::encode($payload, $key),
-            'refreshToken'  => JWT::encode($payload2, $key)
+            'accessToken'   => JWT::encode($accessTokenPayload, self::key()),
+            'refreshToken'  => JWT::encode($refreshTokenPayload, self::key())
         ];
     }
 
@@ -64,7 +66,11 @@ class AuthService
 
     public static function decode(string $encode)
     {
-        $key = '123456';
-        return JWT::decode($encode, $key, ['HS256']);
+        return JWT::decode($encode, self::key(), ['HS256']);
+    }
+
+    private static function key()
+    {
+        return substr(config('app.key'), 7);
     }
 }

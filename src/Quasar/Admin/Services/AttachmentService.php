@@ -115,8 +115,6 @@ class AttachmentService
                 // get attachment library from attachment
                 $attachmentLibrary = $attachment['library'];
 
-                info($attachmentLibrary);
-
                 // move file from temp file to attachment directory
                 File::move($attachmentLibrary['pathname'] . '/' . $attachmentLibrary['filename'], base_path('storage/app/public/library/' . $attachmentLibrary['filename']));
 

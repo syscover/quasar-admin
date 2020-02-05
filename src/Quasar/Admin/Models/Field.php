@@ -17,10 +17,15 @@ class Field extends CoreModel
         'data_lang'     => 'array',
         'data'          => 'array'
     ];
-    public $with            = ['values'];
+    public $with            = ['values', 'fieldGroup'];
 
     public function values()
     {
         return $this->hasMany(FieldValue::class, 'field_uuid', 'uuid');
+    }
+
+    public function fieldGroup()
+    {
+        return $this->belongsTo(FieldGroup::class, 'field_group_uuid', 'uuid');
     }
 }

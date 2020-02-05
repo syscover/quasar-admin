@@ -101,6 +101,7 @@ type AdminField
     id: Int!
     uuid: ID!
     fieldGroupUuid: ID!
+    fieldGroup: AdminFieldGroup!
     name: String!
     labels: [Translation!]!
     fieldTypeUuid: ID!

@@ -3,7 +3,7 @@
 use Illuminate\Support\Str;
 use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;
 use Quasar\Admin\Services\AuthService;
-use Quasar\Core\Exceptions\AuthenticateException;
+use Quasar\Core\Exceptions\AuthenticationException;
 use GraphQL\Type\Definition\ResolveInfo;
 use Quasar\Admin\Models\User;
 
@@ -15,7 +15,7 @@ class AuthResolver
 
         if (!$user) 
         {
-            throw new AuthenticateException();
+            throw new AuthenticationException();
         }
 
         return AuthService::generateTokens($user);

@@ -64,6 +64,10 @@ class FieldService extends CoreService
         ]);
 
         $object = Field::where('uuid', $uuid)->first();
+        
+        // set names of config values
+        $data['fieldTypeName']  = collect(config('quasar-admin.field_types'))->where('uuid', $data['fieldTypeUuid'])->first()->name;
+        $data['dataTypeName']   = collect(config('quasar-admin.data_types'))->where('uuid', $data['dataTypeUuid'])->first()->name;
 
         // update label
         if (! empty($data['label']))

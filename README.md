@@ -58,7 +58,7 @@ php artisan migrate
 php artisan db:seed --class="AdminSeeder"
 ```
 
-**6 - You can access these data**
+**6 - You can access with this credentials**
 ```
 user: john@gmail.com
 pasword: 1111

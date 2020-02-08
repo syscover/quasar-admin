@@ -135,13 +135,14 @@ type AdminFieldValue
 {
     id: Int!
     uuid: ID!
+    commonUuid: ID!
     code: String!
     counter: Int
     langUuid: ID!
     fieldUuid: ID!
     name: String!
     sort: Int
-    featured: Boolean!
+    isFeatured: Boolean!
     dataLang: [String!]!
     data: JSON
     createdAt: DateTime

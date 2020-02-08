@@ -13,16 +13,11 @@ class FieldValue extends CoreModel
     use Langable;
     
     protected $table        = 'admin_field_value';
-    protected $fillable     = ['uuid', 'code', 'counter', 'langUuid', 'fieldUuid', 'name', 'sort', 'featured', 'dataLang', 'data'];
+    protected $fillable     = ['uuid', 'commonUuid', 'code', 'counter', 'langUuid', 'fieldUuid', 'name', 'sort', 'isFeatured', 'dataLang', 'data'];
     protected $casts        = [
-        'featured'  => 'boolean',
-        'data_lang' => 'array',
-        'data'      => 'array'
+        'is_featured'   => 'boolean',
+        'data_lang'     => 'array',
+        'data'          => 'array'
     ];
     public $with            = ['lang'];
-
-    public function values()
-    {
-        return $this->hasMany(FieldValue::class, 'field_uuid', 'uuid');
-    }
 }

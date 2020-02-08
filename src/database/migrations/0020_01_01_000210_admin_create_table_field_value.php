@@ -19,15 +19,13 @@ class AdminCreateTableFieldValue extends Migration {
 
                 $table->increments('id');
                 $table->uuid('uuid');
+                $table->uuid('common_uuid');
                 $table->string('code', 50);
-
-                // counter to assign number to id if has not ID
-                $table->integer('counter')->unsigned()->nullable();
                 $table->uuid('lang_uuid');
                 $table->uuid('field_uuid');
                 $table->string('name');
                 $table->smallInteger('sort')->unsigned()->nullable();
-                $table->boolean('featured')->default(false);
+                $table->boolean('is_featured')->default(false);
                 $table->json('data_lang')->nullable();
                 $table->json('data')->nullable();
 
@@ -35,6 +33,7 @@ class AdminCreateTableFieldValue extends Migration {
                 $table->softDeletes();
 
                 $table->index('uuid', 'admin_field_value_uuid_idx');
+                $table->index('common_uuid', 'admin_field_value_common_uuid_idx');
                 $table->index('code', 'admin_field_value_code_idx');
                 $table->unique(['code', 'lang_uuid', 'field_uuid'], 'admin_field_value_uuid_lang_uuid_field_uuid_uq');
                 $table->foreign('lang_uuid', 'admin_field_value_lang_uuid_fk')

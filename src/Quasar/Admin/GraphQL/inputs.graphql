@@ -125,14 +125,15 @@ input AdminFieldValueInput
 {
     id: Int
     uuid: ID
+    commonUuid: ID
     code: String
     counter: Int
     langUuid: ID!
     fieldUuid: ID!
     name: String!
     sort: Int
-    featured: Boolean!
-    dataLang: [String!]!
+    isFeatured: Boolean!
+    dataLang: [String]
     data: JSON
 }
 

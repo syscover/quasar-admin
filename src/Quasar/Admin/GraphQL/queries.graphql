@@ -26,7 +26,7 @@ adminFieldGroupsPagination(query:[QueryStatementInput]): Pagination! @field(reso
 # FieldValue
 adminFieldValue(query:[QueryStatementInput]): AdminFieldValue @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldValueResolver@find")
 adminFieldValues(query:[QueryStatementInput]): [AdminFieldValue!]! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldValueResolver@get")
-adminFieldValuesPagination(query:[QueryStatementInput]): Pagination! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldValueResolver@paginate")
+adminFieldValuesPagination(query:[QueryStatementInput] constraints:[QueryStatementInput]): Pagination! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldValueResolver@paginate")
 
 # Lang
 adminLang(query:[QueryStatementInput]): AdminLang @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\LangResolver@find")

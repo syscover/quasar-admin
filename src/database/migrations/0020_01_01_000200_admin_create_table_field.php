@@ -19,7 +19,6 @@ class AdminCreateTableField extends Migration {
                 
                 $table->increments('id');
                 $table->uuid('uuid');
-                $table->uuid('field_group_uuid');
                 $table->string('name')->nullable();
                 $table->json('labels')->nullable();                     // label value in different languages
                 $table->uuid('source_uuid')->nullable();                // data source from other models
@@ -57,11 +56,6 @@ class AdminCreateTableField extends Migration {
                 $table->softDeletes();
 
                 $table->index('uuid', 'admin_field_uuid_idx');
-                $table->foreign('field_group_uuid', 'admin_field_field_group_uuid_fk')
-                    ->references('uuid')
-                    ->on('admin_field_group')
-                    ->onDelete('cascade')
-                    ->onUpdate('cascade');
             });
         }
     }

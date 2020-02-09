@@ -17,4 +17,16 @@ class FieldGroup extends CoreModel
     {
         return $this->belongsTo(Resource::class, 'resource_uuid', 'uuid');
     }
+
+    public function fields()
+    {
+        return $this->belongsToMany(
+            Field::class,
+            'admin_field_groups_fields',
+            'field_group_uuid',
+            'field_uuid',
+            'uuid',
+            'uuid'
+        );
+    }
 }

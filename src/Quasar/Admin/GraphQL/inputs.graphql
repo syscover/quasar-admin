@@ -106,7 +106,7 @@ input AdminFieldInput
     id: Int
     uuid: ID
     langUuid: ID!
-    fieldGroupUuid: ID!
+    fieldGroupsUuid: [ID!]!
     name: String!
     label: String!
     fieldTypeUuid: ID!

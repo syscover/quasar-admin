@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\DB;
 use Quasar\Core\Services\CoreService;
+use Quasar\Core\Services\SQLService;
 use Quasar\Admin\Models\Field;
 
 class FieldService extends CoreService
@@ -11,7 +12,7 @@ class FieldService extends CoreService
         $this->validate($data, [
             'uuid'              => 'nullable|uuid',
             'langUuid'          => 'required|uuid|exists:admin_lang,uuid',
-            'fieldGroupUuid'    => 'required|uuid|exists:admin_field_group,uuid',
+            'fieldGroupsUuid'   => 'required|array|exists:admin_field_group,uuid',
             'name'              => 'required|between:2,255',
             'label'             => 'required|between:2,255',
             'fieldTypeUuid'     => 'required|uuid',
@@ -38,6 +39,9 @@ class FieldService extends CoreService
             // create
             $object = Field::create($data)->fresh();
 
+            // add field groups
+            $object->fieldGroups()->sync($data['fieldGroupsUuid']);
+
             // add data lang for element
             // $object->addDataLang($object);
         });
@@ -51,7 +55,7 @@ class FieldService extends CoreService
             'id'                => 'required|integer',
             'uuid'              => 'nullable|uuid',
             'langUuid'          => 'required|uuid|exists:admin_lang,uuid',
-            'fieldGroupUuid'    => 'required|uuid|exists:admin_field_group,uuid',
+            'fieldGroupsUuid'   => 'required|array|exists:admin_field_group,uuid',
             'name'              => 'required|between:2,255',
             'labels'            => 'nullable|array',
             'fieldTypeUuid'     => 'required|uuid',
@@ -63,27 +67,49 @@ class FieldService extends CoreService
             'class'             => 'nullable|between:2,255'
         ]);
 
-        $object = Field::where('uuid', $uuid)->first();
-        
-        // set names of config values
-        $data['fieldTypeName']  = collect(config('quasar-admin.field_types'))->where('uuid', $data['fieldTypeUuid'])->first()->name;
-        $data['dataTypeName']   = collect(config('quasar-admin.data_types'))->where('uuid', $data['dataTypeUuid'])->first()->name;
+        $object = null;
 
-        // update label
-        if (! empty($data['label']))
+        DB::transaction(function () use ($data, $uuid, &$object)
         {
-            $data['labels'] = collect($object->labels)->map(function($item) use ($data) {
-                if ($item['langUuid'] === $data['langUuid']) $item['value'] = $data['label'];
-                return $item;
-            });
-        }
+            $object = Field::where('uuid', $uuid)->first();
 
-        // fill data
-        $object->fill($data);
+            // set names of config values
+            $data['fieldTypeName']  = collect(config('quasar-admin.field_types'))->where('uuid', $data['fieldTypeUuid'])->first()->name;
+            $data['dataTypeName']   = collect(config('quasar-admin.data_types'))->where('uuid', $data['dataTypeUuid'])->first()->name;
 
-        // save changes
-        $object->save();
+            // update label
+            if (! empty($data['label']))
+            {
+                $data['labels'] = collect($object->labels)->map(function($item) use ($data) {
+                    if ($item['langUuid'] === $data['langUuid']) $item['value'] = $data['label'];
+                    return $item;
+                });
+            }
+
+            // fill data
+            $object->fill($data);
+
+            // save changes
+            $object->save();
+
+            // add field groups
+            $object->fieldGroups()->sync($data['fieldGroupsUuid']);
+        });
 
         return $object;
+    }
+
+    public function delete($uuid, $modelClassName)
+    {
+        $objects = SQLService::deleteRecord($uuid, $modelClassName);
+
+        //if ($objects->contains('langUuid', base_lang_uuid()))
+        //{
+            $object = $objects->first();
+
+            $object->fieldGroups()->detach();
+        //}
+
+        return $objects;
     }
 }

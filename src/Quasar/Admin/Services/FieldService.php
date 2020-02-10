@@ -24,27 +24,48 @@ class FieldService extends CoreService
             'class'             => 'nullable|between:2,255'
         ]);
 
-        // set label translation to new object
-        $data['labels']           = [['langUuid' => $data['langUuid'], 'value' => $data['label']]];
-        
-        // set names of config values
-        $data['fieldTypeName']  = collect(config('quasar-admin.field_types'))->where('uuid', $data['fieldTypeUuid'])->first()->name;
-        $data['dataTypeName']   = collect(config('quasar-admin.data_types'))->where('uuid', $data['dataTypeUuid'])->first()->name;
-        $data['dataLang']       = [$data['langUuid']];
-
-        $object = null;
-
-        DB::transaction(function () use ($data, &$object)
+        if ($data['uuid'] ?? false)
         {
-            // create
-            $object = Field::create($data)->fresh();
+            $object = Field::where('uuid', $data['uuid'])->first();
 
-            // add field groups
-            $object->fieldGroups()->sync($data['fieldGroupsUuid']);
+            // get values
+            $labels     = $object->labels;
+            $dataLang   = $object->dataLang;
 
-            // add data lang for element
-            // $object->addDataLang($object);
-        });
+            $labels[]   = ['langUuid' => $data['langUuid'], 'value' => $data['label']];
+            $dataLang[] = $data['langUuid'];
+
+            // set values
+            $object->labels     = $labels;
+            $object->dataLang   = $dataLang;
+
+            // save changes
+            $object->save();
+        }
+        else
+        {
+            // set label translation to new object
+            $data['labels']           = [['langUuid' => $data['langUuid'], 'value' => $data['label']]];
+            
+            // set names of config values
+            $data['fieldTypeName']  = collect(config('quasar-admin.field_types'))->where('uuid', $data['fieldTypeUuid'])->first()->name;
+            $data['dataTypeName']   = collect(config('quasar-admin.data_types'))->where('uuid', $data['dataTypeUuid'])->first()->name;
+            $data['dataLang']       = [$data['langUuid']];
+
+            $object = null;
+
+            DB::transaction(function () use ($data, &$object)
+            {
+                // create
+                $object = Field::create($data)->fresh();
+
+                // add field groups
+                $object->fieldGroups()->sync($data['fieldGroupsUuid']);
+
+                // add data lang for element
+                $object->addDataLang($object);
+            });
+        }        
         
         return $object;
     }

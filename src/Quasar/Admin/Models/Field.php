@@ -6,7 +6,6 @@ use Quasar\Core\Models\CoreModel;
  * Class Field
  * @package Quasar\Admin\Models
  */
-
 class Field extends CoreModel
 {
     protected $table        = 'admin_field';
@@ -34,5 +33,16 @@ class Field extends CoreModel
             'uuid',
             'uuid',
         );
+    }
+
+    public function deleteTranslationRecord($uuid, $langUuid)
+    {
+        $field = Field::find($uuid);
+
+        $field->labels = collect($field->labels)->filter(function($value, $key) use ($langUuid) {
+            return $value['langUuid'] !== $langUuid;
+        });
+
+        $field->save();
     }
 }

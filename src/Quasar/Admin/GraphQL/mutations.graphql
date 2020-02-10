@@ -15,7 +15,7 @@ adminDeleteCountry(uuid:ID!): [AdminCountry] @field(resolver: "Quasar\\Admin\\Gr
 # Field
 adminCreateField(payload:AdminFieldInput!): AdminField @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldResolver@create")
 adminUpdateField(payload:AdminFieldInput!): AdminField @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldResolver@update")
-adminDeleteField(uuid:ID!): [AdminField] @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldResolver@delete")
+adminDeleteField(uuid:ID! langUuid:ID!): [AdminField] @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldResolver@delete")
 
 # FieldGroup
 adminCreateFieldGroup(payload:AdminFieldGroupInput!): AdminFieldGroup @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FieldGroupResolver@create")

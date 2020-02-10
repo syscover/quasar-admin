@@ -35,14 +35,22 @@ class Field extends CoreModel
         );
     }
 
-    public function deleteTranslationRecord($uuid, $langUuid)
+    public static function deleteTranslationRecord($uuid, $langUuid)
     {
-        $field = Field::find($uuid);
+        $object = Field::where('uuid', $uuid)->first();
 
-        $field->labels = collect($field->labels)->filter(function($value, $key) use ($langUuid) {
+        // delete labels
+        $object->labels = collect($object->labels)->filter(function($value, $key) use ($langUuid) {
             return $value['langUuid'] !== $langUuid;
         });
 
-        $field->save();
+        // delete data lang
+        $object->dataLang = collect($object->dataLang)->filter(function($value, $key) use ($langUuid) {
+            return $value !== $langUuid;
+        });
+
+        $object->save();
+
+        return collect([$object]);
     }
 }

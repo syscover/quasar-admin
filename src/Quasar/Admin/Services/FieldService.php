@@ -61,9 +61,6 @@ class FieldService extends CoreService
 
                 // add field groups
                 $object->fieldGroups()->sync($data['fieldGroupsUuid']);
-
-                // add data lang for element
-                $object->addDataLang($object);
             });
         }        
         
@@ -120,17 +117,17 @@ class FieldService extends CoreService
         return $object;
     }
 
-    public function delete($uuid, $modelClassName)
+    public function delete(array $data, $model)
     {
-        $objects = SQLService::deleteRecord($uuid, $modelClassName);
-
-        //if ($objects->contains('langUuid', base_lang_uuid()))
-        //{
-            $object = $objects->first();
-
-            $object->fieldGroups()->detach();
-        //}
-
-        return $objects;
+        if ($data['langUuid'] == base_lang_uuid())
+        {
+            $object = SQLService::deleteRecord($data['uuid'], $model);
+        }
+        else
+        {
+            $object = Field::deleteTranslationRecord($data['uuid'], $data['langUuid']);
+        }
+        
+        return $object;
     }
 }

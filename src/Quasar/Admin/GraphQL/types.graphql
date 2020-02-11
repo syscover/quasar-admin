@@ -100,7 +100,7 @@ type AdminField
 {
     id: Int!
     uuid: ID!
-    fieldGroups: [AdminFieldGroup]
+    fieldGroups: [AdminFieldGroup!]!
     name: String!
     labels: [Translation!]!
     fieldTypeUuid: ID!

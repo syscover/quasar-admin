@@ -13,10 +13,15 @@ class RoleService extends CoreService
             'isMaster'  => 'nullable|boolean',
         ]);
 
-        $object = Role::create($data)->fresh();
+        $object = null;
 
-        // create permissions
-        $object->permissions()->sync($data['permissionsUuid']);
+        DB::transaction(function () use ($data, &$object)
+        {
+            $object = Role::create($data)->fresh();
+
+            // create permissions
+            $object->permissions()->sync($data['permissionsUuid']);
+        });
 
         return $object;
     }
@@ -35,11 +40,14 @@ class RoleService extends CoreService
         // fill data
         $object->fill($data);
 
-        // save changes
-        $object->save();
+        DB::transaction(function () use ($data, &$object)
+        {
+            // save changes
+            $object->save();
 
-        // update permissions
-        $object->permissions()->sync($data['permissionsUuid']);
+            // update permissions
+            $object->permissions()->sync($data['permissionsUuid']);
+        });
 
         return $object;
     }

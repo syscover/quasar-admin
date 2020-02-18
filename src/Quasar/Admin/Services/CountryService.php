@@ -50,7 +50,7 @@ class CountryService extends CoreService
     {
         $this->validate($data, [
             'id'                        => 'required|integer',
-            'uuid'                      => 'nullable|uuid',
+            'uuid'                      => 'required|uuid',
             'commonUuid'                => 'nullable|uuid',
             'langUuid'                  => 'required|uuid|exists:admin_lang,uuid',
             'iso3166Alpha2'             => 'required|alpha|size:2',

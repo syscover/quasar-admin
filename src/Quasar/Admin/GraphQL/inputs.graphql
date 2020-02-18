@@ -55,13 +55,6 @@ input AdminAttachmentFamilyInput
     format: String
 }
 
-input AdminCredentialsInput
-{
-    username: String!
-    password: String!
-    grantType: String!
-}
-
 input AdminCountryInput
 {
     id: Int

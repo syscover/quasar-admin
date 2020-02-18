@@ -3,11 +3,6 @@ adminAttachmentFamily(query:[QueryStatementInput]): AdminAttachmentFamily @field
 adminAttachmentFamilies(query:[QueryStatementInput]): [AdminAttachmentFamily!]! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AttachmentFamilyResolver@get")
 adminAttachmentFamiliesPagination(query:[QueryStatementInput]): Pagination! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AttachmentFamilyResolver@paginate")
 
-# Authorization
-adminCredentials(credentials: AdminCredentialsInput!): AdminCredentials! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AuthResolver@credentials")
-adminMe: AdminUser @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AuthResolver@me")
-adminMePermissions: [AdminPermission] @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AuthResolver@permissions")
-
 # Country
 adminCountry(query:[QueryStatementInput]): AdminCountry @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\CountryResolver@find")
 adminCountries(query:[QueryStatementInput]): [AdminCountry!]! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\CountryResolver@get")

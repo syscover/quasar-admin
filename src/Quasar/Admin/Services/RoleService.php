@@ -1,5 +1,6 @@
 <?php namespace Quasar\Admin\Services;
 
+use Illuminate\Support\Facades\DB;
 use Quasar\Core\Services\CoreService;
 use Quasar\Admin\Models\Role;
 

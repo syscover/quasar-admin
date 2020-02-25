@@ -27,7 +27,10 @@ class AdminServiceProvider extends ServiceProvider
 
         // register config
         $this->publishes([
-            __DIR__ . '/../../config/quasar-admin.php' => config_path('quasar-admin.php')
+            __DIR__ . '/../../config/quasar-admin.php'                  => config_path('quasar-admin.php'),
+            __DIR__ . '/../../../../core/src/config/lighthouse.php'     => config_path('lighthouse.php'),
+            __DIR__ . '/../../../../core/src/config/quasar-core.php'    => config_path('quasar-core.php'),
+            __DIR__ . '/../../../../oauth/src/config/quasar-oauth.php'  => config_path('quasar-oauth.php')
         ], 'config');
 	}
 

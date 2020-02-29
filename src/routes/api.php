@@ -12,9 +12,9 @@ Route::group(['prefix' => 'api/v1', 'middleware' => ['api']], function ()
 Route::group(['middleware' => ['api']], function () 
 {
     // Packages
-    Route::get('admin/package',                                         'Quasar\Admin\Controllers\PackageController@get')->name('api.admin.package.get');
-    Route::get('admin/package/find',                                    'Quasar\Admin\Controllers\PackageController@find')->name('api.admin.package.find');
-    Route::post('admin/package',                                        'Quasar\Admin\Controllers\PackageController@create')->name('api.admin.package.create');
-    Route::put('admin/package',                                         'Quasar\Admin\Controllers\PackageController@update')->name('api.admin.package.update');
-    Route::delete('admin/package',                                      'Quasar\Admin\Controllers\PackageController@delete')->name('api.admin.package.delete');
+    Route::get('admin/package',                                     'Quasar\Admin\Controllers\PackageController@get')->name('quasar.admin.package.get');
+    Route::get('admin/package/find',                                'Quasar\Admin\Controllers\PackageController@find')->name('quasar.admin.package.find');
+    Route::post('admin/package',                                    'Quasar\Admin\Controllers\PackageController@create')->name('quasar.admin.package.create');
+    Route::put('admin/package',                                     'Quasar\Admin\Controllers\PackageController@update')->name('quasar.admin.package.update');
+    Route::delete('admin/package',                                  'Quasar\Admin\Controllers\PackageController@delete')->name('quasar.admin.package.delete');
 });

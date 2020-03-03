@@ -441,7 +441,7 @@ class AttachmentService
             if (is_array($attachmentFamily->sizes) && count($attachmentFamily->sizes) > 0)
             {
                 $dataAttachment = $attachment->data;
-                $dataAttachment['sizes'] = self::setImageSizes($attachment, $attachableUuid, $baseUrl);
+                $dataAttachment['sizes'] = self::setImageSizes($attachment, $attachmentFamily, $attachableUuid, $baseUrl);
 
                 // overwrite sizes field
                 Attachment::where('uuid', $attachment->uuid)
@@ -452,7 +452,7 @@ class AttachmentService
         }
     }
 
-    private static function setImageSizes($attachment, $attachableUuid, $baseUrl)
+    private static function setImageSizes($attachment, $attachmentFamily, $attachableUuid, $baseUrl)
     {
         // original size and biggest size
         $sizes[] = [

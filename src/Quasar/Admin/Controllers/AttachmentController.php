@@ -2,6 +2,7 @@
 
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Intervention\Image\ImageManagerStatic as Image;
 use Quasar\Admin\Services\AttachmentService;
 
@@ -19,6 +20,20 @@ class AttachmentController extends BaseController
             'tmpAttachmentsLibraryTmp'     => $tmpAttachmentsLibrary,
             'tmpAttachments'               => $tmpAttachments
         ];
+
+        return response()->json($response);
+    }
+
+    public function froalaUpload(Request $request) 
+    {
+        $files = $request->file('file');
+
+        // save file in tmp folder
+        $tmpAttachmentsLibrary = AttachmentService::storeAttachmentsLibraryTmp($files);
+
+        // create response
+        $response['link']   = Arr::first($tmpAttachmentsLibrary)['url'];
+        $response['image']  = Arr::first($tmpAttachmentsLibrary);
 
         return response()->json($response);
     }

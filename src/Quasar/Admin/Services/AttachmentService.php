@@ -328,14 +328,109 @@ class AttachmentService
         }
     }
 
+    public static function storeFroalaAttachments($html, $directory, $baseUrl, $attachableUuid)
+    {
+        if (empty($html)) return null;
+
+        // load html
+        $doc = new \DOMDocument();
+        // set error level to avoid errors when links has & symbol
+        $internalErrors = libxml_use_internal_errors(true);
+        // load html html
+        $doc->loadHTML($html);
+        // Restore error level
+        libxml_use_internal_errors($internalErrors);
+
+        $imgTags = $doc->getElementsByTagName('img');
+        $isChanged = false;
+
+        foreach ($imgTags as $imgTag)
+        {
+            // search class hr-uploaded
+            $classes = preg_split('/\s+/', $imgTag->getAttribute('class'));
+            $uploaded = false;
+            $dirty = false;
+            $currentClasses = [];
+            $horusClasses = [];
+            
+            foreach ($classes as $class)
+            {
+                switch ($class)
+                {
+                    case $class === 'hr-uploaded':
+                        $uploaded = true;
+                        break;
+                    
+                    case $class === 'hr-dirty':
+                        $dirty = true;
+                        break;
+
+                    case Str::startsWith($class, 'hr-'):
+                        $dirty = true;
+                        $horusClasses[] = $class;
+                        break;
+
+                    default:
+                        $currentClasses[] = $class;
+                        break;
+                }
+            }
+
+            // move file at your folder
+            if ($uploaded)
+            {
+                // get data element insert in froala-wysiwyg.component line 113
+                $attachment = json_decode($imgTag->getAttribute('data-hr'));
+                
+                // clean image element
+                $imgTag->removeAttribute('data-hr');
+
+                // useless attribute added by Froala
+                if ($imgTag->hasAttribute('data-image')) $imgTag->removeAttribute('data-image');
+
+                // make directory
+                if (! File::exists(base_path($directory . '/' . $attachableUuid)))  File::makeDirectory(base_path($directory . '/' . $attachableUuid), 0755, true);
+
+                // move file from temp file to attachment directory
+                File::move($attachment->pathname . '/' . $attachment->filename, base_path($directory . '/' . $attachableUuid . '/' . $attachment->filename));
+                
+                // set new pathname in attachment
+                $attachment->pathname = base_path($directory . '/' . $attachableUuid);
+
+                // set new url
+                $attachment->url = asset($baseUrl . '/' . $attachableUuid . '/' . $attachment->filename);
+
+                $isChanged = true;
+            }
+
+            // the image have been changed
+            if ($dirty)
+            {
+                if ($uploaded)
+                {
+                    $imgTag->setAttribute('src', $attachment->url);    
+                }
+
+                // add classes not hr- to image tag
+                if (count($currentClasses) > 0) $imgTag->setAttribute('class', implode(' ', $currentClasses));
+                
+                $isChanged = true;
+            }
+        }
+
+        if ($isChanged) return $doc->saveHTML();
+
+        return $html;
+    }
+
     /**
      * Manage responsive sizes and save in database
      *
      * @param $attachment
-     * @param $baseurl
+     * @param $baseUrl
      * @param $attachableUuid
      */
-    private static function setAttachmentSizes($attachment, $baseurl, $attachableUuid)
+    private static function setAttachmentSizes($attachment, $baseUrl, $attachableUuid)
     {
         // check that attachment has family id and is a image
         if (! empty($attachment->familyUuid) && ImageHelper::isImageMime($attachment->mime))
@@ -345,44 +440,8 @@ class AttachmentService
 
             if (is_array($attachmentFamily->sizes) && count($attachmentFamily->sizes) > 0)
             {
-                // original size and biggest size
-                $sizes[] = [
-                    "size"      => 0,
-                    "width"     => $attachment->width,
-                    "height"    => $attachment->height,
-                    "pathname"  => $attachment->pathname,
-                    "filename"  => $attachment->filename,
-                    "url"       => asset($baseurl . '/' . $attachableUuid . '/' . $attachment->filename)
-                ];
-
-                foreach ($attachmentFamily->sizes as $size)
-                {
-                    // calculate percentage that we need from image
-                    $percentage = 100 - $size;
-
-                    $width  = intval(($attachment->width * $percentage) / 100);
-                    $height = intval(($attachment->height * $percentage) / 100);
-
-                    /**
-                     * config http://image.intervention.io with imagemagick
-                     */
-                    Image::configure(['driver' => 'imagick']);
-                    $image = Image::make($attachment->pathname . '/' . $attachment->filename);
-                    $image->resize($width, $height);
-                    $image->save($attachment->pathname . '/' . $size . '@_' . $attachment->filename);
-
-                    $sizes[] = [
-                        "size"      => $size,
-                        "width"     => $width,
-                        "height"    => $height,
-                        "pathname"  => $attachment->pathname,
-                        "filename"  => $size . '@_' . $attachment->filename,
-                        "url"       => asset($baseurl . '/' . $attachableUuid . '/' . $size . '@_' . $attachment->filename)
-                    ];
-                }
-
                 $dataAttachment = $attachment->data;
-                $dataAttachment['sizes'] = $sizes;
+                $dataAttachment['sizes'] = self::setImageSizes($attachment, $attachableUuid, $baseUrl);
 
                 // overwrite sizes field
                 Attachment::where('uuid', $attachment->uuid)
@@ -391,6 +450,47 @@ class AttachmentService
                     ]);
             }
         }
+    }
+
+    private static function setImageSizes($attachment, $attachableUuid, $baseUrl)
+    {
+        // original size and biggest size
+        $sizes[] = [
+            "size"      => 0,
+            "width"     => $attachment->width,
+            "height"    => $attachment->height,
+            "pathname"  => $attachment->pathname,
+            "filename"  => $attachment->filename,
+            "url"       => asset($baseUrl . '/' . $attachableUuid . '/' . $attachment->filename)
+        ];
+
+        foreach ($attachmentFamily->sizes as $size)
+        {
+            // calculate percentage that we need from image
+            $percentage = 100 - $size;
+
+            $width  = intval(($attachment->width * $percentage) / 100);
+            $height = intval(($attachment->height * $percentage) / 100);
+
+            /**
+             * config http://image.intervention.io with imagemagick
+             */
+            Image::configure(['driver' => 'imagick']);
+            $image = Image::make($attachment->pathname . '/' . $attachment->filename);
+            $image->resize($width, $height);
+            $image->save($attachment->pathname . '/' . $size . '@_' . $attachment->filename);
+
+            $sizes[] = [
+                "size"      => $size,
+                "width"     => $width,
+                "height"    => $height,
+                "pathname"  => $attachment->pathname,
+                "filename"  => $size . '@_' . $attachment->filename,
+                "url"       => asset($baseUrl . '/' . $attachableUuid . '/' . $size . '@_' . $attachment->filename)
+            ];
+        }
+
+        return $sizes;
     }
 
     public static function crop($attachment, $attachmentFamily, $crop)

@@ -19,9 +19,10 @@ class AdminCreateTableAdministrativeAreaLevel3 extends Migration
 
                 $table->increments('id');
                 $table->uuid('uuid');
-                $table->uuid('country_uuid');
+                $table->uuid('country_common_uuid');
                 $table->uuid('administrative_area_level_1_uuid');
                 $table->uuid('administrative_area_level_2_uuid');
+                $table->string('code', 8);
                 $table->string('name');
                 $table->string('slug');
 
@@ -30,8 +31,8 @@ class AdminCreateTableAdministrativeAreaLevel3 extends Migration
 
                 $table->index('uuid', 'admin_administrative_area_level_3_idx');
                 $table->index('slug', 'admin_administrative_area_level_3_slug_idx');
-                $table->foreign('country_uuid', 'admin_administrative_area_level_3_country_uuid_fk')
-                    ->references('uuid')
+                $table->foreign('country_common_uuid', 'admin_administrative_area_level_3_country_common_uuid_fk')
+                    ->references('common_uuid')
                     ->on('admin_country')
                     ->onDelete('restrict')
                     ->onUpdate('cascade');

@@ -27,7 +27,8 @@ class AdminCreateTableAdministrativeAreaLevel1 extends Migration
                 $table->timestamps();
                 $table->softDeletes();
 
-                $table->index('uuid', 'admin_administrative_area_level_1_idx');
+                $table->index('uuid', 'admin_administrative_area_level_1_uuid_idx');
+                $table->index('code', 'admin_administrative_area_level_1_code_idx');
                 $table->index('slug', 'admin_administrative_area_level_1_slug_idx');
                 $table->foreign('country_common_uuid', 'admin_administrative_area_level_1_country_common_uuid_fk')
                     ->references('common_uuid')

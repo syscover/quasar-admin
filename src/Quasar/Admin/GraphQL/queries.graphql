@@ -1,3 +1,18 @@
+# AdministrativeAreaLevel1
+adminAdministrativeAreaLevel1(query:[QueryStatementInput]): AdminAdministrativeAreaLevel1 @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AdministrativeAreaLevel1Resolver@find")
+adminAdministrativeAreasLevel1(query:[QueryStatementInput]): [AdminAdministrativeAreaLevel1!]! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AdministrativeAreaLevel1Resolver@get")
+adminAdministrativeAreasLevel1Pagination(query:[QueryStatementInput] constraints:[QueryStatementInput]): Pagination! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AdministrativeAreaLevel1Resolver@paginate")
+
+# AdministrativeAreaLevel2
+adminAdministrativeAreaLevel2(query:[QueryStatementInput]): AdminAdministrativeAreaLevel2 @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AdministrativeAreaLevel2Resolver@find")
+adminAdministrativeAreasLevel2(query:[QueryStatementInput]): [AdminAdministrativeAreaLevel2!]! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AdministrativeAreaLevel2Resolver@get")
+adminAdministrativeAreasLevel2Pagination(query:[QueryStatementInput] constraints:[QueryStatementInput]): Pagination! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AdministrativeAreaLevel2Resolver@paginate")
+
+# AdministrativeAreaLevel3
+adminAdministrativeAreaLevel3(query:[QueryStatementInput]): AdminAdministrativeAreaLevel3 @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AdministrativeAreaLevel3Resolver@find")
+adminAdministrativeAreasLevel3(query:[QueryStatementInput]): [AdminAdministrativeAreaLevel3!]! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AdministrativeAreaLevel3Resolver@get")
+adminAdministrativeAreasLevel3Pagination(query:[QueryStatementInput] constraints:[QueryStatementInput]): Pagination! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AdministrativeAreaLevel3Resolver@paginate")
+
 # AttachmentFamily
 adminAttachmentFamily(query:[QueryStatementInput]): AdminAttachmentFamily @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AttachmentFamilyResolver@find")
 adminAttachmentFamilies(query:[QueryStatementInput]): [AdminAttachmentFamily!]! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AttachmentFamilyResolver@get")

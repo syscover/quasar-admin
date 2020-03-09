@@ -23,6 +23,7 @@ class AdminCreateTableAdministrativeAreaLevel3 extends Migration
                 $table->uuid('administrative_area_level_1_uuid');
                 $table->uuid('administrative_area_level_2_uuid');
                 $table->string('code', 8);
+                $table->string('custom_code', 10)->nullable(); 
                 $table->string('name');
                 $table->string('slug');
 

@@ -1,3 +1,43 @@
+
+type AdminAdministrativeAreaLevel1
+{
+    id: Int!
+    uuid: ID!
+    countryCommonUuid: ID!
+    country: AdminCountry!
+    code: String!
+    customCode: String
+    name: String!
+    slug: String!
+}
+
+type AdminAdministrativeAreaLevel2
+{
+    id: Int!
+    uuid: ID!
+    countryCommonUuid: ID!
+    administrativeAreaLevel1Uuid: ID!
+    country: AdminCountry!
+    code: String!
+    customCode: String
+    name: String!
+    slug: String!
+}
+
+type AdminAdministrativeAreaLevel3
+{
+    id: Int!
+    uuid: ID!
+    countryCommonUuid: ID!
+    administrativeAreaLevel1Uuid: ID!
+    administrativeAreaLevel2Uuid: ID!
+    country: AdminCountry!
+    code: String!
+    customCode: String
+    name: String!
+    slug: String!
+}
+
 type AdminAttachment 
 {    
     id: Int!

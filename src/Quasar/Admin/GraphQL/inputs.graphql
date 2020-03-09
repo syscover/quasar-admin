@@ -1,3 +1,39 @@
+input AdminAdministrativeAreaLevel1Input
+{
+    id: Int
+    uuid: ID
+    countryCommonUuid: ID!
+    code: String!
+    customCode: String
+    name: String!
+    slug: String!
+}
+
+input AdminAdministrativeAreaLevel2Input
+{
+    id: Int
+    uuid: ID
+    countryCommonUuid: ID!
+    administrativeAreaLevel1Uuid: ID!
+    code: String!
+    customCode: String
+    name: String!
+    slug: String!
+}
+
+input AdminAdministrativeAreaLevel3Input
+{
+    id: Int
+    uuid: ID
+    countryCommonUuid: ID!
+    administrativeAreaLevel1Uuid: ID!
+    administrativeAreaLevel2Uuid: ID!
+    code: String!
+    customCode: String
+    name: String!
+    slug: String!
+}
+
 input AdminAttachmentInput
 {
     id: Int

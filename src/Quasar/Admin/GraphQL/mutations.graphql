@@ -1,3 +1,18 @@
+# AdministrativeAreaLevel1
+adminCreateAdministrativeAreaLevel1(payload:AdminAdministrativeAreaLevel1Input!): AdminAdministrativeAreaLevel1 @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AdministrativeAreaLevel1Resolver@create")
+adminUpdateAdministrativeAreaLevel1(payload:AdminAdministrativeAreaLevel1Input!): AdminAdministrativeAreaLevel1 @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AdministrativeAreaLevel1Resolver@update")
+adminDeleteAdministrativeAreaLevel1(uuid:ID!): [AdminAdministrativeAreaLevel1] @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AdministrativeAreaLevel1Resolver@delete")
+
+# AdministrativeAreaLevel2
+adminCreateAdministrativeAreaLevel2(payload:AdminAdministrativeAreaLevel2Input!): AdminAdministrativeAreaLevel2 @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AdministrativeAreaLevel2Resolver@create")
+adminUpdateAdministrativeAreaLevel2(payload:AdminAdministrativeAreaLevel2Input!): AdminAdministrativeAreaLevel2 @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AdministrativeAreaLevel2Resolver@update")
+adminDeleteAdministrativeAreaLevel2(uuid:ID!): [AdminAdministrativeAreaLevel2] @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AdministrativeAreaLevel2Resolver@delete")
+
+# AdministrativeAreaLevel3
+adminCreateAdministrativeAreaLevel3(payload:AdminAdministrativeAreaLevel3Input!): AdminAdministrativeAreaLevel3 @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AdministrativeAreaLevel3Resolver@create")
+adminUpdateAdministrativeAreaLevel3(payload:AdminAdministrativeAreaLevel3Input!): AdminAdministrativeAreaLevel3 @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AdministrativeAreaLevel3Resolver@update")
+adminDeleteAdministrativeAreaLevel3(uuid:ID!): [AdminAdministrativeAreaLevel3] @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AdministrativeAreaLevel3Resolver@delete")
+
 # Attachment
 adminCropAttachment(payload:JSON!): JSON @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AttachmentResolver@crop")
 adminDeleteAttachment(attachment:AdminAttachmentInput!): JSON @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\AttachmentResolver@delete")

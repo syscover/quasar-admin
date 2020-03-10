@@ -24,6 +24,9 @@ class AdminCreateTableAdministrativeAreaLevel1 extends Migration
                 $table->string('custom_code', 10)->nullable(); 
                 $table->string('name');
                 $table->string('slug');
+                $table->decimal('latitude', 17, 14)->nullable();
+                $table->decimal('longitude', 17, 14)->nullable();
+                $table->tinyInteger('zoom')->nullable();
 
                 $table->timestamps();
                 $table->softDeletes();

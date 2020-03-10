@@ -14,7 +14,10 @@ class AdministrativeAreaLevel1Service extends CoreService
             'code'                      => 'required|between:1,8',
             'customCode'                => 'nullable|between:1,10',
             'name'                      => 'required|between:2,255',
-            'slug'                      => 'required|between:1,255'
+            'slug'                      => 'required|between:1,255',
+            'latitude'                  => 'nullable|numeric',
+            'longitude'                 => 'nullable|numeric',
+            'zoom'                      => 'nullable|integer',
         ]);
 
         // create
@@ -30,7 +33,10 @@ class AdministrativeAreaLevel1Service extends CoreService
             'code'                      => 'required|between:1,8',
             'customCode'                => 'nullable|between:1,10',
             'name'                      => 'required|between:2,255',
-            'slug'                      => 'required|between:1,255'
+            'slug'                      => 'required|between:1,255',
+            'latitude'                  => 'nullable|numeric',
+            'longitude'                 => 'nullable|numeric',
+            'zoom'                      => 'nullable|integer',
         ]);
 
         $object = null;

@@ -7,6 +7,9 @@ input AdminAdministrativeAreaLevel1Input
     customCode: String
     name: String!
     slug: String!
+    latitude: Float
+    longitude: Float
+    zoom: Int
 }
 
 input AdminAdministrativeAreaLevel2Input
@@ -19,6 +22,9 @@ input AdminAdministrativeAreaLevel2Input
     customCode: String
     name: String!
     slug: String!
+    latitude: Float
+    longitude: Float
+    zoom: Int
 }
 
 input AdminAdministrativeAreaLevel3Input
@@ -32,6 +38,9 @@ input AdminAdministrativeAreaLevel3Input
     customCode: String
     name: String!
     slug: String!
+    latitude: Float
+    longitude: Float
+    zoom: Int
 }
 
 input AdminAttachmentInput

@@ -9,6 +9,11 @@ type AdminAdministrativeAreaLevel1
     customCode: String
     name: String!
     slug: String!
+    latitude: Float
+    longitude: Float
+    zoom: Int
+    createdAt: DateTime
+    updatedAt: DateTime
 }
 
 type AdminAdministrativeAreaLevel2
@@ -22,6 +27,11 @@ type AdminAdministrativeAreaLevel2
     customCode: String
     name: String!
     slug: String!
+    latitude: Float
+    longitude: Float
+    zoom: Int
+    createdAt: DateTime
+    updatedAt: DateTime
 }
 
 type AdminAdministrativeAreaLevel3
@@ -36,6 +46,11 @@ type AdminAdministrativeAreaLevel3
     customCode: String
     name: String!
     slug: String!
+    latitude: Float
+    longitude: Float
+    zoom: Int
+    createdAt: DateTime
+    updatedAt: DateTime
 }
 
 type AdminAttachment 

@@ -11,6 +11,8 @@ class AdminSeeder extends Seeder
 
         $this->call(AdminLangSeeder::class);
         $this->call(AdminCountrySeeder::class);
+        $this->call(AdminAdministrativeAreaLevel1Seeder::class);
+        $this->call(AdminAdministrativeAreaLevel2Seeder::class);
         $this->call(AdminPackageSeeder::class);
         $this->call(AdminPermissionSeeder::class);
         $this->call(AdminResourceSeeder::class);

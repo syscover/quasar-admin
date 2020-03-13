@@ -133,9 +133,9 @@ type AdminCountry
     administrativeAreaLevel1: String
     administrativeAreaLevel2: String
     administrativeAreaLevel3: String
-    # administrativeAreasLevel1: [AdminTerritorialArea1]
-    # administrativeAreasLevel2: [AdminTerritorialArea2]
-    # administrativeAreasLevel3: [AdminTerritorialArea3]
+    administrativeAreasLevel1: [AdminAdministrativeAreaLevel1]
+    administrativeAreasLevel2: [AdminAdministrativeAreaLevel2]
+    administrativeAreasLevel3: [AdminAdministrativeAreaLevel3]
     administrativeAreas: [String]
     latitude: Float
     longitude: Float

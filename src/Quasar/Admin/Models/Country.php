@@ -21,38 +21,23 @@ class Country extends CoreModel
     ];
     public $with            = [
         'lang',
-        // 'administrativeAreaLevel1',
-        // 'administrativeAreaLevel2',
-        // 'administrativeAreaLevel3'
+        'administrativeAreasLevel1',
+        'administrativeAreasLevel2',
+        'administrativeAreasLevel3'
     ];
 
-    /* public function administrativeAreaLevel1()
+    public function administrativeAreasLevel1()
     {
-        return $this->hasMany(TerritorialArea1::class, 'country_id', 'id')->orderBy('name', 'asc');
+        return $this->hasMany(AdministrativeAreaLevel1::class, 'country_common_uuid', 'common_uuid')->orderBy('name', 'asc');
     }
 
-    public function administrativeAreaLevel2()
+    public function administrativeAreasLevel2()
     {
-        return $this->hasMany(TerritorialArea2::class, 'country_id', 'id')->orderBy('name', 'asc');
+        return $this->hasMany(AdministrativeAreaLevel2::class, 'country_common_uuid', 'common_uuid')->orderBy('name', 'asc');
     }
 
-    public function administrativeAreaLevel3()
+    public function administrativeAreasLevel3()
     {
-        return $this->hasMany(TerritorialArea3::class, 'country_id', 'id')->orderBy('name', 'asc');
-    } */
-
-    /* public function getTerritorialAreaName($zone)
-    {
-        switch ($zone) 
-        {
-            case 'territorial_areas_1':
-                return $this->{'territorial_area_1'};
-            case 'territorial_areas_2':
-                return $this->{'territorial_area_2'};
-            case 'territorial_areas_3':
-                return $this->{'territorial_area_3'};
-            default;
-                return null;
-        }
-    } */
+        return $this->hasMany(AdministrativeAreaLevel3::class, 'country_common_uuid', 'common_uuid')->orderBy('name', 'asc');
+    }
 }

@@ -11,7 +11,8 @@ class AdministrativeAreaLevel2 extends CoreModel
 {
     protected $table        = 'admin_administrative_area_level_2';
     protected $fillable     = ['uuid', 'countryCommonUuid', 'administrativeAreaLevel1Uuid', 'code', 'customCode', 'name', 'slug', 'latitude', 'longitude', 'zoom'];
-    
+    protected $maps         = ['administrative_area_level_1_uuid' => 'administrativeAreaLevel1Uuid'];
+
     public function country()
     {
         return $this->belongsTo(Country::class, 'countryCommonUuid', 'uuid');

@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Arr;
 use Quasar\Core\Services\CoreService;
 use Quasar\Admin\Models\User;
+use Quasar\OAuth\Services\JWTService;
+use Quasar\OAuth\Models\AccessToken;
 
 class UserService extends CoreService
 {
@@ -70,5 +72,36 @@ class UserService extends CoreService
         $object->profiles()->sync($data['profilesUuid']);
 
         return $object;
+    }
+
+    public function setShortcuts(array $data): array
+    {
+        $token = (array) JWTService::decode(request()->bearerToken());
+
+        // get access token from database
+        $accessToken = AccessToken::where('uuid', $token['jit'])
+            ->where('is_revoked', false)
+            ->first();
+
+        // set data
+        $userData = $accessToken->user->data;
+        $userData['shortcuts'] = $data['payload'];
+        $accessToken->user->data = $userData;
+
+        $accessToken->user->save();
+        
+        return $data['payload'];
+    }
+
+    public function getShortcuts(): array
+    {
+        $token = (array) JWTService::decode(request()->bearerToken());
+
+        // get access token from database
+        $accessToken = AccessToken::where('uuid', $token['jit'])
+            ->where('is_revoked', false)
+            ->first();
+
+        return $accessToken->user->data['shortcuts'] ?? [];
     }
 }

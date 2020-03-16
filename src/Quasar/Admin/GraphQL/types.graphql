@@ -282,6 +282,7 @@ type AdminUser
     profiles: [AdminProfile]
     username: String!
     isActive: Boolean!
+    data: JSON
     createdAt: DateTime
     updatedAt: DateTime
 }

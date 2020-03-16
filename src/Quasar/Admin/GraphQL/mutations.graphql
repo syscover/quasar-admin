@@ -76,3 +76,4 @@ adminDeleteRole(uuid:ID!): [AdminRole] @field(resolver: "Quasar\\Admin\\GraphQL\
 adminCreateUser(payload:AdminUserInput!): AdminUser @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\UserResolver@create")
 adminUpdateUser(payload:AdminUserInput!): AdminUser @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\UserResolver@update")
 adminDeleteUser(uuid:ID!): [AdminUser] @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\UserResolver@delete")
+adminSetUserShortcuts(payload:JSON!): JSON @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\UserResolver@setShortcuts")

@@ -14,10 +14,11 @@ class User extends CoreModel
     use HasRelationships;
 
     protected $table        = 'admin_user';
-    protected $fillable     = ['uuid', 'name', 'surname', 'email', 'langUuid', 'isActive', 'username', 'password'];
+    protected $fillable     = ['uuid', 'name', 'surname', 'email', 'langUuid', 'isActive', 'username', 'password', 'data'];
     protected $hidden       = ['password', 'remember_token'];
     protected $casts        = [
-        'is_active' => 'boolean'
+        'is_active' => 'boolean',
+        'data'      => 'array'
     ];
     public $with            = ['lang', 'profiles'];
 

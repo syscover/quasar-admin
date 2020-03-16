@@ -251,6 +251,7 @@ input AdminUserInput
     username: String!
     password: String
     isActive: Boolean
+    data: JSON
     rolesUuid: [ID]
     profilesUuid: [ID]
 }

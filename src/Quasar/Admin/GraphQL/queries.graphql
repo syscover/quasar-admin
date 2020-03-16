@@ -72,3 +72,4 @@ adminRolesPagination(query:[QueryStatementInput]): Pagination! @field(resolver: 
 adminUser(query:[QueryStatementInput]): AdminUser @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\UserResolver@find")
 adminUsers(query:[QueryStatementInput]): [AdminUser!]! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\UserResolver@get")
 adminUsersPagination(query:[QueryStatementInput]): Pagination! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\UserResolver@paginate")
+adminGetUserShortcuts: JSON @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\UserResolver@getShortcuts")

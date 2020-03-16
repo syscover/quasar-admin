@@ -11,4 +11,14 @@ class UserResolver extends CoreResolver
         $this->model = $model;
         $this->service = $service;
     }
+
+    public function setShortcuts($root, array $args)
+    {
+        return $this->service->setShortcuts($args);
+    }
+
+    public function getShortcuts($root, array $args)
+    {
+        return $this->service->getShortcuts();
+    }
 }

@@ -1,5 +1,6 @@
 <?php namespace Quasar\Admin\Models;
 
+use Laravel\Scout\Searchable;
 use Quasar\Core\Models\CoreModel;
 use Quasar\Admin\Traits\Langable;
 use Staudenmeir\EloquentHasManyDeep\HasRelationships;
@@ -12,6 +13,7 @@ class User extends CoreModel
 {
     use Langable;
     use HasRelationships;
+    use Searchable;
 
     protected $table        = 'admin_user';
     protected $fillable     = ['uuid', 'name', 'surname', 'email', 'langUuid', 'isActive', 'username', 'password', 'data'];
@@ -73,5 +75,19 @@ class User extends CoreModel
             'uuid',
             'uuid'
         );
+    }
+
+    public function toIndexableArray()
+    {
+        return [
+            'permissionUuid'    => 'dab3dcf7-e119-4b72-8498-99cf3843ca9c',
+            'indexableType'     => self::class,
+            'indexableUuid'     => $this->uuid,
+            'url'               => '/app/admin/user/edit/' . $this->uuid,
+            'title'             => $this->name . ' ' . $this->email,
+            'contentLayer1'     => $this->email,
+            'contentLayer2'     => $this->username,
+            'contentLayer3'     => null
+        ];
     }
 }

@@ -119,7 +119,7 @@ class FieldService extends CoreService
 
     public function delete(array $data, $model)
     {
-        if ($data['langUuid'] == base_lang_uuid())
+        if ($data['langUuid'] == baseLangUuid())
         {
             $object = SQLService::deleteRecord($data['uuid'], $model);
         }

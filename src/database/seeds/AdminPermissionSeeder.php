@@ -50,6 +50,21 @@ class AdminPermissionSeeder extends Seeder
             ['uuid' => '10681637-224d-46a0-9f08-56b250c0198a',  'name' => 'admin.country.create',                       'package_uuid' => '9e8dbba3-b82b-406f-b71f-060a0494ffba'],
             ['uuid' => 'afdba55c-540e-4a72-a9c9-6909cc9f3d36',  'name' => 'admin.country.get',                          'package_uuid' => '9e8dbba3-b82b-406f-b71f-060a0494ffba'],
 
+            ['uuid' => '183a0ca4-7558-43c5-bcc4-4b2b9093a8eb',  'name' => 'admin.administrativeAreaLevel1.access',      'package_uuid' => '9e8dbba3-b82b-406f-b71f-060a0494ffba'],
+            ['uuid' => 'd0d03b53-9346-4313-8b03-b3fa616f2bc3',  'name' => 'admin.administrativeAreaLevel1.list',        'package_uuid' => '9e8dbba3-b82b-406f-b71f-060a0494ffba'],
+            ['uuid' => '07002d11-683c-4bdd-a719-51a79f2bf1fe',  'name' => 'admin.administrativeAreaLevel1.create',      'package_uuid' => '9e8dbba3-b82b-406f-b71f-060a0494ffba'],
+            ['uuid' => '45f4c516-11cb-43b2-a56f-fbf3ef89fa74',  'name' => 'admin.administrativeAreaLevel1.get',         'package_uuid' => '9e8dbba3-b82b-406f-b71f-060a0494ffba'],
+
+            ['uuid' => '070f560f-218f-48f5-a0dc-fd349bcc6348',  'name' => 'admin.administrativeAreaLevel2.access',      'package_uuid' => '9e8dbba3-b82b-406f-b71f-060a0494ffba'],
+            ['uuid' => 'deaf8669-9d71-48b9-951a-5a1db4de0b7d',  'name' => 'admin.administrativeAreaLevel2.list',        'package_uuid' => '9e8dbba3-b82b-406f-b71f-060a0494ffba'],
+            ['uuid' => '0b26565c-b2cd-4eca-b4d7-d4d5fd3a382e',  'name' => 'admin.administrativeAreaLevel2.create',      'package_uuid' => '9e8dbba3-b82b-406f-b71f-060a0494ffba'],
+            ['uuid' => '64802a51-079a-4fcd-8b88-ed430604983f',  'name' => 'admin.administrativeAreaLevel2.get',         'package_uuid' => '9e8dbba3-b82b-406f-b71f-060a0494ffba'],
+
+            ['uuid' => 'c1c43cdf-13f7-4301-892c-b7a7f9b148fd',  'name' => 'admin.administrativeAreaLevel3.access',      'package_uuid' => '9e8dbba3-b82b-406f-b71f-060a0494ffba'],
+            ['uuid' => 'a8ba51d6-2c2f-4eb4-b557-d4b64389c001',  'name' => 'admin.administrativeAreaLevel3.list',        'package_uuid' => '9e8dbba3-b82b-406f-b71f-060a0494ffba'],
+            ['uuid' => 'c9748e58-33dc-4b14-9c1d-c82142a9d990',  'name' => 'admin.administrativeAreaLevel3.create',      'package_uuid' => '9e8dbba3-b82b-406f-b71f-060a0494ffba'],
+            ['uuid' => 'e0419656-b758-4b7c-b54e-4b7c562f418a',  'name' => 'admin.administrativeAreaLevel3.get',         'package_uuid' => '9e8dbba3-b82b-406f-b71f-060a0494ffba'],
+
             ['uuid' => '096ac555-09a8-4603-b082-5e1e1ad51db1',  'name' => 'admin.profile.access',                       'package_uuid' => '9e8dbba3-b82b-406f-b71f-060a0494ffba'],
             ['uuid' => '9b7cccff-689b-49dc-9b11-37f387accc12',  'name' => 'admin.profile.list',                         'package_uuid' => '9e8dbba3-b82b-406f-b71f-060a0494ffba'],
             ['uuid' => '4bf07675-d824-4d87-8589-73f98adc1909',  'name' => 'admin.profile.create',                       'package_uuid' => '9e8dbba3-b82b-406f-b71f-060a0494ffba'],

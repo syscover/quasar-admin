@@ -18,7 +18,8 @@
     ],
     "require": {
         "php": "^7.3",
-        "quasar/core": "^1.0"
+        "quasar/core": "^1.0",
+        "quasar/search-engine": "^1.0"
     },
     "autoload": {
         "psr-4": {

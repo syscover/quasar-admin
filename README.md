@@ -61,6 +61,7 @@ composer dump-autoload
 php artisan queue:table
 php artisan migrate
 php artisan db:seed --class="AdminSeeder"
+php artisan db:seed --class="OAuthSeeder"
 ```
 
 **6 - You can access with this credentials**

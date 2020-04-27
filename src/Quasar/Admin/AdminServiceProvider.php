@@ -1,6 +1,7 @@
 <?php namespace Quasar\Admin;
 
 use Illuminate\Support\ServiceProvider;
+use Quasar\Admin\Events\AdminEventServiceProvider;
 
 class AdminServiceProvider extends ServiceProvider
 {
@@ -22,13 +23,18 @@ class AdminServiceProvider extends ServiceProvider
 
         // register seeds
         $this->publishes([
-            __DIR__ . '/../../database/seeds/' => base_path('/database/seeds')
+            __DIR__ . '/../../database/seeds/'                      => base_path('/database/seeds'),
+            __DIR__ . '/../../../../oauth/src/database/seeds/'      => base_path('/database/seeds')
         ], 'seeds');
 
         // register config
         $this->publishes([
-            __DIR__ . '/../../config/quasar-admin.php' => config_path('quasar-admin.php')
+            __DIR__ . '/../../config/quasar-admin.php'                  => config_path('quasar-admin.php'),
+            __DIR__ . '/../../../../oauth/src/config/quasar-oauth.php'  => config_path('quasar-oauth.php')
         ], 'config');
+
+        // register events and listener predefined
+        $this->app->register(AdminEventServiceProvider::class);
 	}
 
 	/**
